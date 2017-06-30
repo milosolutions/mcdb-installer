@@ -12,4 +12,5 @@ Component.prototype.createOperations = function()
 {
     // call default implementation
     component.createOperations();
+    component.addOperation("Replace", "@TargetDir@/@ProjectName@/milo/mscripts/bumpVersion.sh", "template", "@ProjectName@");
 }

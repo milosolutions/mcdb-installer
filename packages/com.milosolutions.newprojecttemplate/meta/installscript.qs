@@ -23,7 +23,7 @@ Component.prototype.createOperations = function()
     //component.addOperation("Copy", "@TargetDir@/../Licenses/license.txt", "@TargetDir@/@ProjectName@/license.txt");
     component.addOperation("Delete", "@TargetDir@/@ProjectName@/template.pro.user");
     component.addOperation("Delete", "@TargetDir@/@ProjectName@/.gitlab-ci.yml");
-
+    component.addOperation("Move", "@TargetDir@/@ProjectName@/.gitlab-ci.yml.example", "@TargetDir@/@ProjectName@/.gitlab-ci.yml");
 
     // find and replace all occurrences of the word Template / template to "@ProjectName@"
     component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/src.pro", "Template", "@ProjectName@");
@@ -32,7 +32,6 @@ Component.prototype.createOperations = function()
     component.addOperation("Replace", "@TargetDir@/@ProjectName@/@ProjectName@.doxyfile", "template", "@ProjectName@");
     component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/main.cpp", "Template", "@ProjectName@");
     component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/main.cpp", "template", "@ProjectName@");
-
 
     // retrieve all installation requested components and in depends on kind of
     // component ( module / platform support ) perform the appropriate action.
@@ -46,11 +45,13 @@ Component.prototype.createOperations = function()
 
                     switch( components[i].name ) {
                         // if component applies to module
-                        case "com.milosolutions.miloconfig"           :
-                        case "com.milosolutions.milolog"              :
-                        case "com.milosolutions.pushnotifications"    :
-                        case "com.milosolutions.milocharts"           :
-                        case "com.milosolutions.restapicommunication" :
+                        case "com.milosolutions.mconfig"           :
+                        case "com.milosolutions.mlog"              :
+                        case "com.milosolutions.msentry"           :
+                        case "com.milosolutions.mcharts"           :
+                        case "com.milosolutions.mrestapi"          :
+                        case "com.milosolutions.mbarcodescanner"   :
+                        case "com.milosolutions.mcharts"           :
                             appendComponent( components[i] );
                         break;
 
@@ -70,18 +71,17 @@ Component.prototype.createOperations = function()
 }
 
 function appendComponent(component) {
-
     var componentName = component.name.split(".").pop();
     component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/src.pro",
                            "## Modules",
                            "## Modules" + "\n" +
-                            "include(../" + componentName + "/" + componentName + ".pri)");
+                            "include(../milo/" + componentName + "/" + componentName + ".pri)");
 
     // if component has test
     switch (component.name) {
-        case "com.milosolutions.miloconfig"                  :
-        case "com.milosolutions.milolog"                      :
-        case "com.milosolutions.restapicommunication" :
+        case "com.milosolutions.mconfig"  :
+        case "com.milosolutions.mlog"     :
+        case "com.milosolutions.mrestapi" :
                 appendComponentTest(component);
         break;
     }
@@ -95,7 +95,7 @@ function appendComponentTest(component) {
     component.addOperation("Replace", "@TargetDir@/@ProjectName@/tests/tests.pro",
                            "SUBDIRS += \\",
                            "SUBDIRS += \\" + "\n" +
-                           "\t../" + componentName + "/tst_" + componentName + " \\");
+                           "\t../milo/" + componentName + "/tst_" + componentName + " \\");
 }
 
 function appendPlatformSupport(component) {
