@@ -10,12 +10,12 @@ fi
 
 if [ "$#" -ne 2 ]; then
   echo "Illegal number of parameters: $#. See --help"
-  exit
+  exit 1
 fi
 
-if [ ! -f "$PWD/milocodedatabase.doxyfile" ]; then
+if [ ! -f "$PWD/mcdb-installer.doxyfile" ]; then
   echo "Wrong directory. Call this script from root dir of Milo Code Database"
-  exit
+  exit 2
 fi
 
 DOXY=$1
