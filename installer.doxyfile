@@ -52,12 +52,11 @@ EXTERNAL_PAGES = YES
 
 HAVE_DOT = NO
 
-TAGFILES = packages/com.milosolutions.facebook/data/facebook/socialconnect.doxytag=../../packages/com.milosolutions.facebook/data/facebook/doc/html \
-packages/com.milosolutions.newprojecttemplate/data/template.doxytag=../../packages/com.milosolutions.newprojecttemplate/data/doc/html \
-packages/com.milosolutions.cibuildscripts/data/cibuildscripts/cibuildscripts.doxytag=../../packages/com.milosolutions.cibuildscripts/data/cibuildscripts/doc/html \
-packages/com.milosolutions.miloconfig/data/miloconfig/miloconfig.doxytag=../../packages/com.milosolutions.miloconfig/data/miloconfig/doc/html \
-packages/com.milosolutions.milolog/data/milolog/milolog.doxytag=../../packages/com.milosolutions.milolog/data/milolog/doc/html \
-packages/com.milosolutions.restapicommunication/data/restapicommunication/restapicommunication.doxytag=../../packages/com.milosolutions.restapicommunication/data/restapicommunication/doc/html \
-packages/com.milosolutions.barcodescanner/data/barcodescanner/barcodescanner.doxytag=../../packages/com.milosolutions.barcodescanner/data/barcodescanner/doc/html \
-packages/com.milosolutions.milocharts/data/milocharts/milocharts.doxytag=../../packages/com.milosolutions.milocharts/data/milocharts/doc/html \
-packages/com.milosolutions.pushnotifications/data/pushnotifications/pushnotifications.doxytag=../../packages/com.milosolutions.pushnotifications/data/pushnotifications/doc/html
+TAGFILES = packages/com.milosolutions.newprojecttemplate/data/template.doxytag=../../packages/com.milosolutions.newprojecttemplate/data/doc/html \
+packages/com.milosolutions.mscripts/data/mscripts/mscripts.doxytag=../../packages/com.milosolutions.mscripts/data/mscripts/doc/html \
+packages/com.milosolutions.mconfig/data/mconfig/mconfig.doxytag=../../packages/com.milosolutions.mconfig/data/mconfig/doc/html \
+packages/com.milosolutions.mlog/data/mlog/mlog.doxytag=../../packages/com.milosolutions.mlog/data/mlog/doc/html \
+packages/com.milosolutions.mrestapi/data/mrestapi/mrestapi.doxytag=../../packages/com.milosolutions.mrestapi/data/mrestapi/doc/html \
+packages/com.milosolutions.mbarcodescanner/data/mbarcodescanner/mbarcodescanner.doxytag=../../packages/com.milosolutions.mbarcodescanner/data/mbarcodescanner/doc/html \
+packages/com.milosolutions.mcharts/data/mcharts/mcharts.doxytag=../../packages/com.milosolutions.mcharts/data/mcharts/doc/html \
+packages/com.milosolutions.msentry/data/msentry/msentry.doxytag=../../packages/com.milosolutions.msentry/data/msentry/doc/html
