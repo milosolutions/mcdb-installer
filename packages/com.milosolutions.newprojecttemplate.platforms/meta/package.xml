@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Package>
+    <DisplayName>Platform support</DisplayName>
+    <Description>This component contains additional stuff for supported systems.</Description>
+    <Version>1.0.0</Version>
+    <ReleaseDate>2016-12-01</ReleaseDate>
+    <SortingPriority>100</SortingPriority>
+</Package>

@@ -1,0 +1,63 @@
+## Milo Solutions - doxygen file template
+#
+#
+## (c) Milo Solutions, 2016
+
+DOXYFILE_ENCODING = UTF-8
+
+PROJECT_NAME = "Milo Code Database"
+PROJECT_NUMBER = 0.1
+PROJECT_BRIEF = "Code DB is the place where we put interesting, reusable pieces of code, for use in other projects"
+PROJECT_LOGO = doc/img/logo.png
+
+OUTPUT_DIRECTORY = doc/
+
+INPUT = README.md doc/buildinginstaller.md doc/docbranding.md doc/miloheader.md doc/repositoryguide.md doc/subprojects.md
+RECURSIVE = TRUE
+QT_AUTOBRIEF = YES
+USE_MDFILE_AS_MAINPAGE = README.md
+
+EXTRACT_ALL = YES
+EXTRACT_PRIVATE = YES
+EXTRACT_STATIC = YES
+
+DISTRIBUTE_GROUP_DOC = YES
+
+GENERATE_TAGFILE = milocodedatabase.doxytag
+GENERATE_HTML = YES
+GENERATE_LATEX = NO
+GENERATE_RTF = NO
+GENERATE_MAN = NO
+GENERATE_XML = NO
+
+#DISABLE_INDEX = NO
+#GENERATE_TREEVIEW = YES
+
+HTML_OUTPUT = html/
+HTML_FILE_EXTENSION = .html
+HTML_HEADER = doc/branding/milo-doxy-header.html
+HTML_FOOTER = doc/branding/milo-doxy-footer.html
+HTML_EXTRA_STYLESHEET = doc/branding/milo-doxygen.css
+HTML_EXTRA_FILES = doc/branding/milo.js
+IMAGE_PATH = doc/img/
+
+TAB_SIZE = 4
+INHERIT_DOCS = YES
+BUILTIN_STL_SUPPORT = YES
+GENERATE_TODOLIST = YES
+
+ALLEXTERNALS = YES
+EXTERNAL_GROUPS = YES
+EXTERNAL_PAGES = YES
+
+HAVE_DOT = NO
+
+TAGFILES = packages/com.milosolutions.facebook/data/facebook/socialconnect.doxytag=../../packages/com.milosolutions.facebook/data/facebook/doc/html \
+packages/com.milosolutions.newprojecttemplate/data/template.doxytag=../../packages/com.milosolutions.newprojecttemplate/data/doc/html \
+packages/com.milosolutions.cibuildscripts/data/cibuildscripts/cibuildscripts.doxytag=../../packages/com.milosolutions.cibuildscripts/data/cibuildscripts/doc/html \
+packages/com.milosolutions.miloconfig/data/miloconfig/miloconfig.doxytag=../../packages/com.milosolutions.miloconfig/data/miloconfig/doc/html \
+packages/com.milosolutions.milolog/data/milolog/milolog.doxytag=../../packages/com.milosolutions.milolog/data/milolog/doc/html \
+packages/com.milosolutions.restapicommunication/data/restapicommunication/restapicommunication.doxytag=../../packages/com.milosolutions.restapicommunication/data/restapicommunication/doc/html \
+packages/com.milosolutions.barcodescanner/data/barcodescanner/barcodescanner.doxytag=../../packages/com.milosolutions.barcodescanner/data/barcodescanner/doc/html \
+packages/com.milosolutions.milocharts/data/milocharts/milocharts.doxytag=../../packages/com.milosolutions.milocharts/data/milocharts/doc/html \
+packages/com.milosolutions.pushnotifications/data/pushnotifications/pushnotifications.doxytag=../../packages/com.milosolutions.pushnotifications/data/pushnotifications/doc/html

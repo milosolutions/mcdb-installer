@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>Default component</DisplayName>
+    <Description>This package modifies the QtIFW installer by adding a custom
+        page called "Project name". It sets the ProjectName variable, which is 
+        used in other parts of the installer.
+        Do not deselect this item.</Description>
+    <Version>1</Version>
+    <ReleaseDate>2016-03-21</ReleaseDate>
+    <Virtual>true</Virtual>
+    <SortingPriority>101</SortingPriority>
+    <Script>installscript.js</Script>
+    <UserInterfaces>
+        <UserInterface>projectnamewidget.ui</UserInterface>
+    </UserInterfaces>
+</Package>

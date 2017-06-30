@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>MiloCharts</DisplayName>
+    <Description>MiloCharts is an easy to use module for displaying charts. It uses charts.js insternally</Description>
+    <Version>1</Version>
+    <ReleaseDate>2016-09-08</ReleaseDate>
+    <Default>false</Default>
+    <Script>installscript.qs</Script>
+</Package>

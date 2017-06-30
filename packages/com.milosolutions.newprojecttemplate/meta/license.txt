@@ -1,0 +1,4 @@
+Default license for Milo projects. Please modify it if your project will use another license.
+
+Qt is distributed under LGPLv3 license, which you can find in license-Qt.txt file.
+

@@ -1,0 +1,5 @@
+build-*
+*.kate-swp
+miloinstaller
+*.doxytag
+doc/html/

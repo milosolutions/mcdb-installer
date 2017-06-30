@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>Milo Project Installer</Name>
+    <Version>1.0.0</Version>
+    <Title>Milo Project Installer</Title>
+    <Publisher>Milo Solutions</Publisher>
+    <StartMenuDir>Milo Solutions</StartMenuDir>
+    <TargetDir>@HomeDir@/@ProjectName@</TargetDir>
+    <InstallerWindowIcon>icon</InstallerWindowIcon>
+    <InstallerApplicationIcon>icon</InstallerApplicationIcon>
+    <Logo>logo-transparent-small.png</Logo>
+    <!--<Banner>logo.png</Banner>-->
+    <!--<Watermark>watermark.png</Watermark>-->
+    <!--<Background>background.png</Background>-->
+    <AllowSpaceInPath>false</AllowSpaceInPath>
+    <AllowNonAsciiCharacters>false</AllowNonAsciiCharacters>
+    <WizardStyle>Modern</WizardStyle>
+</Installer>
