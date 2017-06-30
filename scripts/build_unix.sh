@@ -40,14 +40,13 @@ echo "Removing build artifacts from base package" | tee $LOGFILE
 rm -rfv packages/com.milosolutions.newprojecttemplate/build-* >> $LOGFILE 2>&1
 
 echo "Preparing subprojects" | tee -a $LOGFILE
-prepareSubproject packages/com.milosolutions.barcodescanner/data/barcodescanner
-prepareSubproject packages/com.milosolutions.cibuildscripts/data/cibuildscripts
-prepareSubproject packages/com.milosolutions.facebook/data/facebook
-prepareSubproject packages/com.milosolutions.milocharts/data/milocharts
-prepareSubproject packages/com.milosolutions.miloconfig/data/miloconfig
-prepareSubproject packages/com.milosolutions.milolog/data/milolog
-prepareSubproject packages/com.milosolutions.pushnotifications/data/pushnotifications
-prepareSubproject packages/com.milosolutions.restapicommunication/data/restapicommunication
+prepareSubproject packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner
+prepareSubproject packages/com.milosolutions.mcripts/data/milo/mscripts
+prepareSubproject packages/com.milosolutions.msentry/data/milo/msentry
+prepareSubproject packages/com.milosolutions.mcharts/data/milo/mcharts
+prepareSubproject packages/com.milosolutions.mconfig/data/milo/mconfig
+prepareSubproject packages/com.milosolutions.mlog/data/milo/mlog
+prepareSubproject packages/com.milosolutions.mrestapi/data/milo/mrestapi
 prepareSubproject packages/com.milosolutions.newprojecttemplate/data
 # Build main docs last - so that they can connect TAGFILES properly
 prepareSubproject .

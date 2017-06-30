@@ -53,10 +53,10 @@ EXTERNAL_PAGES = YES
 HAVE_DOT = NO
 
 TAGFILES = packages/com.milosolutions.newprojecttemplate/data/template.doxytag=../../packages/com.milosolutions.newprojecttemplate/data/doc/html \
-packages/com.milosolutions.mscripts/data/mscripts/mscripts.doxytag=../../packages/com.milosolutions.mscripts/data/mscripts/doc/html \
-packages/com.milosolutions.mconfig/data/mconfig/mconfig.doxytag=../../packages/com.milosolutions.mconfig/data/mconfig/doc/html \
-packages/com.milosolutions.mlog/data/mlog/mlog.doxytag=../../packages/com.milosolutions.mlog/data/mlog/doc/html \
-packages/com.milosolutions.mrestapi/data/mrestapi/mrestapi.doxytag=../../packages/com.milosolutions.mrestapi/data/mrestapi/doc/html \
-packages/com.milosolutions.mbarcodescanner/data/mbarcodescanner/mbarcodescanner.doxytag=../../packages/com.milosolutions.mbarcodescanner/data/mbarcodescanner/doc/html \
-packages/com.milosolutions.mcharts/data/mcharts/mcharts.doxytag=../../packages/com.milosolutions.mcharts/data/mcharts/doc/html \
-packages/com.milosolutions.msentry/data/msentry/msentry.doxytag=../../packages/com.milosolutions.msentry/data/msentry/doc/html
+packages/com.milosolutions.mscripts/data/milo/mscripts/mscripts.doxytag=../../packages/com.milosolutions.mscripts/data/milo/mscripts/doc/html \
+packages/com.milosolutions.mconfig/data/milo/mconfig/mconfig.doxytag=../../packages/com.milosolutions.mconfig/data/milo/mconfig/doc/html \
+packages/com.milosolutions.mlog/data/milo/mlog/mlog.doxytag=../../packages/com.milosolutions.mlog/data/milo/mlog/doc/html \
+packages/com.milosolutions.mrestapi/data/milo/mrestapi/mrestapi.doxytag=../../packages/com.milosolutions.mrestapi/data/milo/mrestapi/doc/html \
+packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner/mbarcodescanner.doxytag=../../packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner/doc/html \
+packages/com.milosolutions.mcharts/data/milo/mcharts/mcharts.doxytag=../../packages/com.milosolutions.mcharts/data/milo/mcharts/doc/html \
+packages/com.milosolutions.msentry/data/milo/msentry/msentry.doxytag=../../packages/com.milosolutions.msentry/data/milo/msentry/doc/html

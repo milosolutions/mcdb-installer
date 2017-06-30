@@ -26,14 +26,12 @@ set IFW=%2
 echo "Removing build artifacts from base package"
 for /d %%G in ("packages\com.milosolutions.newprojecttemplate\build-*") do (rd /s /q "%%~G")
 
-call :prepareSubproject packages\com.milosolutions.barcodescanner\data\barcodescanner
-call :prepareSubproject packages\com.milosolutions.cibuildscripts\data\cibuildscripts
-call :prepareSubproject packages\com.milosolutions.facebook\data\facebook
-call :prepareSubproject packages\com.milosolutions.milocharts\data\milocharts
-call :prepareSubproject packages\com.milosolutions.miloconfig\data\miloconfig
-call :prepareSubproject packages\com.milosolutions.milolog\data\milolog
-call :prepareSubproject packages\com.milosolutions.restapicommunication\data\restapicommunication
-call :prepareSubproject packages\com.milosolutions.pushnotifications\data\pushnotifications
+call :prepareSubproject packages\com.milosolutions.mbarcodescanner\data\milo\mbarcodescanner
+call :prepareSubproject packages\com.milosolutions.mscripts\data\milo\mscripts
+call :prepareSubproject packages\com.milosolutions.mcharts\data\milo\mcharts
+call :prepareSubproject packages\com.milosolutions.mconfig\data\milo\mconfig
+call :prepareSubproject packages\com.milosolutions.mlog\data\milo\mlog
+call :prepareSubproject packages\com.milosolutions.mrestapi\data\milo\mrestapi
 call :prepareSubproject packages\com.milosolutions.newprojecttemplate\data
 
 rem Get date on Windows. Code adapted from http://ss64.com/nt/syntax-getdate.html
