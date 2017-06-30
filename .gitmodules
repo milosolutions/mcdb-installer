@@ -1,0 +1,24 @@
+[submodule "packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner"]
+	path = packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner
+	url = ssh://git@git.milosolutions.com:8922/milo-code-database/mbarcodescanner.git
+[submodule "packages/com.milosolutions.mcharts/data/milo/mcharts"]
+	path = packages/com.milosolutions.mcharts/data/milo/mcharts
+	url = ssh://git@git.milosolutions.com:8922/milo-code-database/mcharts.git
+[submodule "packages/com.milosolutions.mconfig/data/milo/mconfig"]
+	path = packages/com.milosolutions.mconfig/data/milo/mconfig
+	url = ssh://git@git.milosolutions.com:8922/milo-code-database/mconfig.git
+[submodule "packages/com.milosolutions.mlog/data/milo/mlog"]
+	path = packages/com.milosolutions.mlog/data/milo/mlog
+	url = ssh://git@git.milosolutions.com:8922/milo-code-database/mlog.git
+[submodule "packages/com.milosolutions.mrestapi/data/milo/mrestapi"]
+	path = packages/com.milosolutions.mrestapi/data/milo/mrestapi
+	url = ssh://git@git.milosolutions.com:8922/milo-code-database/mrestapi.git
+[submodule "packages/com.milosolutions.mscripts/data/milo/mscripts"]
+	path = packages/com.milosolutions.mscripts/data/milo/mscripts
+	url = ssh://git@git.milosolutions.com:8922/milo-code-database/mscripts.git
+[submodule "packages/com.milosolutions.msentry/data/milo/msentry"]
+	path = packages/com.milosolutions.msentry/data/milo/msentry
+	url = ssh://git@git.milosolutions.com:8922/milo-code-database/msentry.git
+[submodule "packages/com.milosolutions.newprojecttemplate/data"]
+	path = packages/com.milosolutions.newprojecttemplate/data
+	url = ssh://git@git.milosolutions.com:8922/milo-code-database/newprojecttemplate.git
