@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
-    <DisplayName>MiloConfig</DisplayName>
-    <Description>MiloConfig is a reference config class for use in all new Milo projects. It is a simple but powerful config helper class. See the documentation for more details.</Description>
+    <DisplayName>MConfig</DisplayName>
+    <Description>MConfig is a reference config class for use in all new Milo projects. It is a simple but powerful config helper class. See the documentation for more details.</Description>
     <Version>1</Version>
     <ReleaseDate>2016-06-15</ReleaseDate>
     <Default>false</Default>

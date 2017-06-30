@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
-    <DisplayName>CI build scripts</DisplayName>
-    <Description>Example scripts for using our CI (GitLab CI).</Description>
+    <DisplayName>MScripts</DisplayName>
+    <Description>Example scripts for using GitLab CIm Mattermost.</Description>
     <Version>1</Version>
     <ReleaseDate>2016-02-27</ReleaseDate>
     <Default>false</Default>
