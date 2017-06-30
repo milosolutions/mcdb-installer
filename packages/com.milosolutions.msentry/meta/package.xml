@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>MSentry</DisplayName>
+    <Description>MSentry provides easy Qt interface for Sentry - remote logger</Description>
+    <Version>1</Version>
+    <ReleaseDate>2017-06-30</ReleaseDate>
+    <Default>false</Default>
+    <Script>installscript.qs</Script>
+</Package>
