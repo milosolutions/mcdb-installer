@@ -26,8 +26,8 @@ build_linux_installer:
   tags:
     - LinuxDesktop
 
-#build_windows_installer:
-#  script:
-#    - powershell -ExecutionPolicy RemoteSigned -File scripts/deploy.ps1
-#  tags:
-#    - WindowsDesktop
+build_windows_installer:
+  script:
+    - powershell -ExecutionPolicy RemoteSigned -File scripts/deploy.ps1
+  tags:
+    - WindowsDesktop
