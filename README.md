@@ -32,10 +32,7 @@ More information about adding new modules is available in \ref repositoryguide
 
 # License # {#license}
 
-Milo Code DB code is shared between multiple projects, so it does require some
-special treatment - please remember that all the code needs license file
-(LICENSE-MiloCodeDB.txt) and all Code DB source files should contain
-the copyright header (miloheader.md).
+This project is licensed under the MIT License - see the LICENSE-MiloCodeDB.txt file for details
 
 # Further reading # {#further}
 
