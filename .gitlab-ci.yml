@@ -4,9 +4,6 @@ before_script:
   # run your build with this command once ( on linux machine this will cause an error: Permission denied )
   #- git config --system core.longpaths true
   #- git config --local include.path "$PWD"/.gitconfig
-  #- set USERPROFILE=C:\Users\gitlab_runner
-  #- set HOMEDRIVE="C:"
-  #- set HOMEPATH=\Users\gitlab_runner
   - git submodule sync --recursive
   - git submodule update --init --recursive 
   - git submodule foreach git pull origin master
