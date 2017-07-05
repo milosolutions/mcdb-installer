@@ -5,7 +5,7 @@ before_script:
   #- git config --system core.longpaths true
   #- git config --local include.path "$PWD"/.gitconfig
   - set USERPROFILE=C:\Users\gitlab_runner
-  - set HOMEDRIVE=C:
+  - set HOMEDRIVE="C:"
   - set HOMEPATH=\Users\gitlab_runner
   - set
   - git submodule sync --recursive
