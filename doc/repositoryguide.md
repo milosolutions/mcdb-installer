@@ -6,8 +6,8 @@ Repository guide {#repositoryguide}
 
 To fully checkout (do it only once, when checking out the first time!):
 ~~~
-  git clone ssh://git@git.milosolutions.com:8922/milo-code-database/milocodedatabase.git
-  cd milocodedatabase
+  git clone ssh://git@git.milosolutions.com:8922/milo-code-database/mcdb-installer.git
+  cd mcdb-installer
   git submodule update --init --recursive
 ~~~
 
