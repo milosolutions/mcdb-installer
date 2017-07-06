@@ -87,6 +87,14 @@ Component.prototype.createOperations = function()
       if (component.value("platform-android", "") == "")
           component.addOperation("Delete", "@TargetDir@/@ProjectName@/platforms/android");
     }
+	else
+	if (installer.value("startMenu", "") == "")
+	{
+		installer.setValue("startMenu", "");
+		component.addOperation("CreateShortcut", "@TargetDir@/maintenancetool.exe", "@StartMenuDir@/maintenancetool.lnk",
+            "workingDirectory=@TargetDir@", "iconPath=%SystemRoot%/system32/SHELL32.dll",
+            "iconId=2");
+	}
 }
 
 function appendComponent(component) {
