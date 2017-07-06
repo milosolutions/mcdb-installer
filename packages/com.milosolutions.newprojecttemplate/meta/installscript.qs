@@ -57,8 +57,15 @@ Component.prototype.createOperations = function()
 
                         // if component applies to platform support
                         case "com.milosolutions.newprojecttemplate.platforms.windows" :
+                            component.setValue("platform-windows", "added");
+                            appendPlatformSupport( components[i] );
+                        break;
                         case "com.milosolutions.newprojecttemplate.platforms.mac"     :
+                            component.setValue("platform-mac", "added");
+                            appendPlatformSupport( components[i] );
+                        break;
                         case "com.milosolutions.newprojecttemplate.platforms.android" :
+                            component.setValue("platform-android", "added");
                             appendPlatformSupport( components[i] );
                         break;
                     }
@@ -67,6 +74,18 @@ Component.prototype.createOperations = function()
         }
     } catch(e) {
         console.log(e);
+    }
+
+    // Cannot delete directory from external drive on windows
+    // https://bugreports.qt.io/browse/QTIFW-842
+    if (systemInfo.productType != "windows")
+    {
+      if (component.value("platform-windows", "") == "")
+          component.addOperation("Delete", "@TargetDir@/@ProjectName@/platforms/windows");
+      if (component.value("platform-mac", "") == "")
+          component.addOperation("Delete", "@TargetDir@/@ProjectName@/platforms/mac");
+      if (component.value("platform-android", "") == "")
+          component.addOperation("Delete", "@TargetDir@/@ProjectName@/platforms/android");
     }
 }
 

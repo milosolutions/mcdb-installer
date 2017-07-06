@@ -1,6 +1,6 @@
 @echo OFF
 
-if %1 == "-h" (
+if %1 == -h (
   echo Usage: windowsBuild.bat doxygenPath qtIfwPath
   echo This will only work when invoked from root repo dir
   echo Builds all subproject documentation, cleans up build dirs, creates the 
