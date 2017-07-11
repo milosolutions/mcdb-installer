@@ -46,10 +46,16 @@ Component.prototype.createOperations = function()
 
                     switch( components[i].name ) {
                         // if component applies to module
+						case "com.milosolutions.mscripts"          :
+						    var componentName = components[i].name.split(".").pop();
+							components[i].addOperation("Replace", "@TargetDir@/@ProjectName@/src/src.pro",
+                            "## Modules",
+                            "## Modules" + "\n" +
+							"include(../milo/" + componentName + "/version/version.pri)");
+						break;
                         case "com.milosolutions.mconfig"           :
                         case "com.milosolutions.mlog"              :
                         case "com.milosolutions.msentry"           :
-                        case "com.milosolutions.mcharts"           :
                         case "com.milosolutions.mrestapi"          :
                         case "com.milosolutions.mbarcodescanner"   :
                         case "com.milosolutions.mcharts"           :
