@@ -23,7 +23,8 @@ Component.prototype.createOperations = function()
     //component.addOperation("Copy", "@TargetDir@/../Licenses/license.txt", "@TargetDir@/@ProjectName@/license.txt");
     component.addOperation("Delete", "@TargetDir@/@ProjectName@/template.pro.user");
     component.addOperation("Delete", "@TargetDir@/@ProjectName@/.gitlab-ci.yml");
-    component.addOperation("Move", "@TargetDir@/@ProjectName@/.gitlab-ci.yml.example", "@TargetDir@/@ProjectName@/.gitlab-ci.yml");
+    component.addOperation("Move", "@TargetDir@/@ProjectName@/gitlab-ci.yml.example", "@TargetDir@/@ProjectName@/.gitlab-ci.yml");
+	component.addOperation("Move", "@TargetDir@/@ProjectName@/gitignore.example", "@TargetDir@/@ProjectName@/.gitignore");
 
     // find and replace all occurrences of the word Template / template to "@ProjectName@"
     component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/src.pro", "Template", "@ProjectName@");
