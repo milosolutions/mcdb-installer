@@ -5,7 +5,9 @@ function Component()
 Component.prototype.createOperationsForArchive = function(archive)
 {
     component.addOperation("Extract", archive, "@TargetDir@/@ProjectName@");
-    component.addOperation("Delete", "@TargetDir@/@ProjectName@/ci-build-scripts/.git");
+	component.addOperation("Delete", "@TargetDir@/@ProjectName@/milo/mscripts/.git");
+	component.addOperation("Delete", "@TargetDir@/@ProjectName@/milo/mscripts/.gitignore");
+	component.addOperation("Delete", "@TargetDir@/@ProjectName@/milo/mscripts/.gitlab-ci.yml");
 }
 
 Component.prototype.createOperations = function()
