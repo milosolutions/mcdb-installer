@@ -45,6 +45,7 @@ prepareSubproject packages/com.milosolutions.mcripts/data/milo/mscripts
 prepareSubproject packages/com.milosolutions.msentry/data/milo/msentry
 prepareSubproject packages/com.milosolutions.mcharts/data/milo/mcharts
 prepareSubproject packages/com.milosolutions.mconfig/data/milo/mconfig
+prepareSubproject packages/com.milosolutions.mcrypto/data/milo/mcrypto
 prepareSubproject packages/com.milosolutions.mlog/data/milo/mlog
 prepareSubproject packages/com.milosolutions.mrestapi/data/milo/mrestapi
 prepareSubproject packages/com.milosolutions.newprojecttemplate/data

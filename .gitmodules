@@ -22,3 +22,6 @@
 [submodule "packages/com.milosolutions.newprojecttemplate/data"]
 	path = packages/com.milosolutions.newprojecttemplate/data
 	url = ssh://git@git.milosolutions.com:8922/milo-code-database/newprojecttemplate.git
+[submodule "packages/com.milosolutions.mcrypto/data/milo/mcrypto"]
+	path = packages/com.milosolutions.mcrypto/data/milo/mcrypto
+	url = ssh://git@git.milosolutions.com:8922/milo-code-database/mcrypto.git

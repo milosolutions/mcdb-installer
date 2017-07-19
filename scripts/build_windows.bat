@@ -30,6 +30,7 @@ call :prepareSubproject packages\com.milosolutions.mbarcodescanner\data\milo\mba
 call :prepareSubproject packages\com.milosolutions.mscripts\data\milo\mscripts
 call :prepareSubproject packages\com.milosolutions.mcharts\data\milo\mcharts
 call :prepareSubproject packages\com.milosolutions.mconfig\data\milo\mconfig
+call :prepareSubproject packages\com.milosolutions.mcrypto\data\milo\mcrypto
 call :prepareSubproject packages\com.milosolutions.mlog\data\milo\mlog
 call :prepareSubproject packages\com.milosolutions.mrestapi\data\milo\mrestapi
 call :prepareSubproject packages\com.milosolutions.newprojecttemplate\data

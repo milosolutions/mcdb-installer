@@ -60,3 +60,4 @@ packages/com.milosolutions.mrestapi/data/milo/mrestapi/mrestapi.doxytag=../../pa
 packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner/mbarcodescanner.doxytag=../../packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner/doc/html \
 packages/com.milosolutions.mcharts/data/milo/mcharts/mcharts.doxytag=../../packages/com.milosolutions.mcharts/data/milo/mcharts/doc/html \
 packages/com.milosolutions.msentry/data/milo/msentry/msentry.doxytag=../../packages/com.milosolutions.msentry/data/milo/msentry/doc/html
+packages/com.milosolutions.mcrypto/data/milo/mcrypto/mcrypto.doxytag=../../packages/com.milosolutions.mcrypto/data/milo/mcrypto/doc/html
