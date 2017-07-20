@@ -1,3 +1,5 @@
+var lastModuleLine = "## Modules";
+
 function Component()
 {
 }
@@ -59,6 +61,7 @@ Component.prototype.createOperations = function()
                         case "com.milosolutions.mrestapi"          :
                         case "com.milosolutions.mbarcodescanner"   :
                         case "com.milosolutions.mcharts"           :
+						case "com.milosolutions.mcrypto"           :
                             appendComponent( components[i] );
                         break;
 
@@ -105,10 +108,13 @@ Component.prototype.createOperations = function()
 
 function appendComponent(component) {
     var componentName = component.name.split(".").pop();
+	var includeLine = "include(../milo/" + componentName + "/" + componentName + ".pri)";
     component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/src.pro",
-                           "## Modules",
-                           "## Modules" + "\n" +
-                            "include(../milo/" + componentName + "/" + componentName + ".pri)");
+                           lastModuleLine,
+                           lastModuleLine + "\n" +
+                           includeLine );
+						   
+	lastModuleLine = includeLine;
 
     // if component has test
     switch (component.name) {

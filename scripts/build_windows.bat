@@ -58,7 +58,7 @@ Set _hour=%_hour:~-2%
 Set _minute=%_minute:~-2%
 
 echo Building installer
-%IFW% -v -c config\config.xml -p packages ..\miloinstaller_%_yyyy%.%_mm%.%_dd%.exe 
+%IFW% -v -c config\config.xml -p packages build\miloinstaller_%_yyyy%.%_mm%.%_dd%.exe 
 echo Done. .bat syntax sucks.
 pause
 goto :EOF

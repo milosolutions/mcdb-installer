@@ -74,14 +74,14 @@ class DeployEngine {
   
     [void] run() {
         #build submodules doc
-        $this.buildSubmoduleDoc("packages\com.milosolutions.barcodescanner\data\barcodescanner");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.facebook\data\facebook");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.ciscripts\data\ci-build-scripts");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.milocharts\data\milocharts");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.miloconfig\data\miloconfig");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.milolog\data\milolog");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.restapicommunication\data\rest-api-communication");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.pushnotifications\data\push-notifications");
+        $this.buildSubmoduleDoc("packages\com.milosolutions.mbarcodescanner\data\milo\mbarcodescanner");
+        $this.buildSubmoduleDoc("packages\com.milosolutions.mscripts\data\milo\mscripts");
+        $this.buildSubmoduleDoc("packages\com.milosolutions.mcharts\data\milo\mcharts");
+        $this.buildSubmoduleDoc("packages\com.milosolutions.mconfig\data\milo\mconfig");
+        $this.buildSubmoduleDoc("packages\com.milosolutions.mlog\data\milo\mlog");
+        $this.buildSubmoduleDoc("packages\com.milosolutions.mrestapi\data\milo\mrestapi");
+		$this.buildSubmoduleDoc("packages\com.milosolutions.msentry\data\milo\msentry");
+		$this.buildSubmoduleDoc("packages\com.milosolutions.mcrypto\data\milo\mcrypto");
         $this.buildSubmoduleDoc("packages\com.milosolutions.newprojecttemplate\data");
         
         # Build main docs last - so that they can connect TAGFILES properly
