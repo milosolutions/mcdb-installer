@@ -54,6 +54,7 @@ prepareSubproject .
 
 echo "Building installer" | tee -a $LOGFILE
 $IFW -v -c config/config.xml -p packages build/miloinstaller_$(date +%Y.%m.%d).run >> $LOGFILE 2>&1
+chmod +x ./build/miloinstaller_$(date +%Y.%m.%d).run
 
 echo "Done. If nothing failed, the installer is built. Check build/build-log.txt for details" | tee -a $LOGFILE
 

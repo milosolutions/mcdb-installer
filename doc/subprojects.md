@@ -11,10 +11,9 @@ Milo DB is slowly growing. Below are 2 lists of modules: one set of links leads 
 3. [MConfig](https://qtdocs.milosolutions.com/milo-code-db/mconfig/) - a small class which helps storing user app settings and configuration
 4. [MLog](https://qtdocs.milosolutions.com/milo-code-db/mlog/) - small but powerful log class. Includes Sentry support
 5. [MRestAPI](https://qtdocs.milosolutions.com/milo-code-db/mrestapi/) - handy set of base classes for talking with REST web servers
-6. Our recruitment tasks
-7. [MBarcodeScanner](https://qtdocs.milosolutions.com/milo-code-db/mbarcodescanner/) - small helper class that allows to scan barcodes and QR codes using QZXing library
-8. [MCharts](https://qtdocs.milosolutions.com/milo-code-db/mcharts/) implements some simple yet meaningful and eye friendly charts to display data
-9. [MSentry](https://qtdocs.milosolutions.com/milo-code-db/msentry/) - remote logger
+6. [MBarcodeScanner](https://qtdocs.milosolutions.com/milo-code-db/mbarcodescanner/) - small helper class that allows to scan barcodes and QR codes using QZXing library
+7. [MCharts](https://qtdocs.milosolutions.com/milo-code-db/mcharts/) implements some simple yet meaningful and eye friendly charts to display data
+8. [MSentry](https://qtdocs.milosolutions.com/milo-code-db/msentry/) - remote logger
 9. [MCrypto](https://qtdocs.milosolutions.com/milo-code-db/mcrypto/) - AES module
 
 Instructions on how to add a new module are contained in \ref repositoryguide
