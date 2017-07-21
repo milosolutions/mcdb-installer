@@ -20,10 +20,10 @@ Component.prototype.createOperations = function()
     //   - Remove .pro.user file - if present
     //   - Remove .gitlab-ci.yml file
     component.addOperation("Move", "@TargetDir@/@ProjectName@/newprojecttemplate.doxyfile", "@TargetDir@/@ProjectName@/@ProjectName@.doxyfile");
-    component.addOperation("Move", "@TargetDir@/@ProjectName@/template.doxytag", "@TargetDir@/@ProjectName@/@ProjectName@.doxytag");
     component.addOperation("Move", "@TargetDir@/@ProjectName@/template.pro", "@TargetDir@/@ProjectName@/@ProjectName@.pro");
     //component.addOperation("Copy", "@TargetDir@/../Licenses/license.txt", "@TargetDir@/@ProjectName@/license.txt");
     component.addOperation("Delete", "@TargetDir@/@ProjectName@/template.pro.user");
+    component.addOperation("Delete", "@TargetDir@/@ProjectName@/template.doxytag");
     component.addOperation("Delete", "@TargetDir@/@ProjectName@/.gitlab-ci.yml");
     component.addOperation("Move", "@TargetDir@/@ProjectName@/gitlab-ci.yml.example", "@TargetDir@/@ProjectName@/.gitlab-ci.yml");
 	component.addOperation("Move", "@TargetDir@/@ProjectName@/gitignore.example", "@TargetDir@/@ProjectName@/.gitignore");
