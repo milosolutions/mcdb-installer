@@ -6,7 +6,7 @@ before_script:
   #- git config --local include.path "$PWD"/.gitconfig
   # If you encounter error:
   # 'fatal: Could not read from remote repository.'
-  # It is possible that WindowsDesktop runner doesn't have set HOMEPATH and HOMEDRIVE. 
+  # It is possible that WindowsDesktop runner doesn't have set USERPROFILE
   # It needs to be setted through script, for example:
   - set USERPROFILE=C:\Users\gitlab-runner
   
