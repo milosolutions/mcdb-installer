@@ -10,6 +10,7 @@ before_script:
   # It needs to be setted through script, for example:
   - set HOMEDRIVE="C:"
   - set HOMEPATH=\Users\gitlab_runner
+  - set USERPROFILE=C:\Users\gitlab_runner
   
   - git submodule sync --recursive
   - git submodule update --init --recursive 
