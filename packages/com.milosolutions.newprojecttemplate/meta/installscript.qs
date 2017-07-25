@@ -6,7 +6,7 @@ function Component()
 
 Component.prototype.createOperationsForArchive = function(archive)
 {
-    component.addOperation("Extract", archive, "@TargetDir@/@ProjectName@");
+    component.addOperation("Extract", archive, "@TargetDirDest@/@ProjectName@");
 }
 
 Component.prototype.createOperations = function()
@@ -19,38 +19,38 @@ Component.prototype.createOperations = function()
     //   - Add license file (same as component license)
     //   - Remove .pro.user file - if present
     //   - Remove .gitlab-ci.yml file
-    component.addOperation("Move", "@TargetDir@/@ProjectName@/newprojecttemplate.doxyfile", "@TargetDir@/@ProjectName@/@ProjectName@.doxyfile");
-    component.addOperation("Move", "@TargetDir@/@ProjectName@/template.pro", "@TargetDir@/@ProjectName@/@ProjectName@.pro");
-    //component.addOperation("Copy", "@TargetDir@/../Licenses/license.txt", "@TargetDir@/@ProjectName@/license.txt");
-    component.addOperation("Delete", "@TargetDir@/@ProjectName@/template.pro.user");
-    component.addOperation("Delete", "@TargetDir@/@ProjectName@/template.doxytag");
-    component.addOperation("Delete", "@TargetDir@/@ProjectName@/.gitlab-ci.yml");
-    component.addOperation("Move", "@TargetDir@/@ProjectName@/gitlab-ci.yml.example", "@TargetDir@/@ProjectName@/.gitlab-ci.yml");
-	component.addOperation("Move", "@TargetDir@/@ProjectName@/gitignore.example", "@TargetDir@/@ProjectName@/.gitignore");
+    component.addOperation("Move", "@TargetDirDest@/@ProjectName@/newprojecttemplate.doxyfile", "@TargetDirDest@/@ProjectName@/@ProjectName@.doxyfile");
+    component.addOperation("Move", "@TargetDirDest@/@ProjectName@/template.pro", "@TargetDirDest@/@ProjectName@/@ProjectName@.pro");
+    //component.addOperation("Copy", "@TargetDirDest@/../Licenses/license.txt", "@TargetDirDest@/@ProjectName@/license.txt");
+    component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/template.pro.user");
+    component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/template.doxytag");
+    component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/.gitlab-ci.yml");
+    component.addOperation("Move", "@TargetDirDest@/@ProjectName@/gitlab-ci.yml.example", "@TargetDirDest@/@ProjectName@/.gitlab-ci.yml");
+    component.addOperation("Move", "@TargetDirDest@/@ProjectName@/gitignore.example", "@TargetDirDest@/@ProjectName@/.gitignore");
 
     // find and replace all occurrences of the word Template / template to "@ProjectName@"
-    component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/src.pro", "Template", "@ProjectName@");
-    component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/src.pro", "template", "@ProjectName@");
-    component.addOperation("Replace", "@TargetDir@/@ProjectName@/@ProjectName@.doxyfile", "Template", "@ProjectName@");
-    component.addOperation("Replace", "@TargetDir@/@ProjectName@/@ProjectName@.doxyfile", "template", "@ProjectName@");
-    component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/main.cpp", "Template", "@ProjectName@");
-    component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/main.cpp", "template", "@ProjectName@");
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/src/src.pro", "Template", "@ProjectName@");
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/src/src.pro", "template", "@ProjectName@");
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/@ProjectName@.doxyfile", "Template", "@ProjectName@");
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/@ProjectName@.doxyfile", "template", "@ProjectName@");
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/src/main.cpp", "Template", "@ProjectName@");
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/src/main.cpp", "template", "@ProjectName@");
 
     // retrieve all installation requested components and in depends on kind of
     // component ( module / platform support ) perform the appropriate action.
     try {
         if( installer.isInstaller() ) {
             var components = installer.components();
-            console.log("Retrieve installation requested components...");
 
             for( i in components ) {
                 if( components[i].installationRequested() ) {
+                    console.log("Retrieve installation requested components..." + components[i].name);
 
                     switch( components[i].name ) {
                         // if component applies to module
 						case "com.milosolutions.mscripts"          :
 						    var componentName = components[i].name.split(".").pop();
-							components[i].addOperation("Replace", "@TargetDir@/@ProjectName@/src/src.pro",
+                            components[i].addOperation("Replace", "@TargetDirDest@/@ProjectName@/src/src.pro",
                             "## Modules",
                             "## Modules" + "\n" +
 							"include(../milo/" + componentName + "/version/version.pri)");
@@ -91,18 +91,18 @@ Component.prototype.createOperations = function()
     if (systemInfo.productType != "windows")
     {
       if (component.value("platform-windows", "") == "")
-          component.addOperation("Delete", "@TargetDir@/@ProjectName@/platforms/windows");
+          component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/platforms/windows");
       if (component.value("platform-mac", "") == "")
-          component.addOperation("Delete", "@TargetDir@/@ProjectName@/platforms/mac");
+          component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/platforms/mac");
       if (component.value("platform-android", "") == "")
-          component.addOperation("Delete", "@TargetDir@/@ProjectName@/platforms/android");
+          component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/platforms/android");
     }
 }
 
 function appendComponent(component) {
     var componentName = component.name.split(".").pop();
 	var includeLine = "include(../milo/" + componentName + "/" + componentName + ".pri)";
-    component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/src.pro",
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/src/src.pro",
                            lastModuleLine,
                            lastModuleLine + "\n" +
                            includeLine );
@@ -128,7 +128,7 @@ function appendComponent(component) {
 function appendComponentTest(component) {
     var componentName = component.name.split(".").pop();
     
-    component.addOperation("Replace", "@TargetDir@/@ProjectName@/tests/tests.pro",
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/tests/tests.pro",
                            "SUBDIRS += \\",
                            "SUBDIRS += \\" + "\n" +
                            "\t../milo/" + componentName + "/tst_" + componentName + " \\");
@@ -137,13 +137,13 @@ function appendComponentTest(component) {
 function appendPlatformSupport(component) {
 
     var componentName = component.name.split(".").pop();
-    component.addOperation("Replace", "@TargetDir@/@ProjectName@/src/src.pro",
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/src/src.pro",
                            "## Platforms",
                            "## Platforms" + "\n" +
                             "include(../platforms/" + componentName + "/" + componentName + ".pri)");
 
     component.addOperation("Replace",
-        "@TargetDir@/@ProjectName@/platforms/" + componentName + "/" + componentName + ".pri",
+        "@TargetDirDest@/@ProjectName@/platforms/" + componentName + "/" + componentName + ".pri",
                            "template", "@ProjectName@");
 
     console.log("Platform support: " + componentName );

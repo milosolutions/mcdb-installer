@@ -26,6 +26,9 @@
    <string>Project name</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="rightMargin">
+    <number>20</number>
+   </property>
    <item>
     <widget class="QLabel" name="labelProject">
      <property name="text">
@@ -33,10 +36,9 @@
      </property>
     </widget>
    </item>
-     <item>
-      <widget class="QLineEdit" name="projectName">
-      </widget>
-     </item>
+   <item>
+    <widget class="QLineEdit" name="projectName"/>
+   </item>
    <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
