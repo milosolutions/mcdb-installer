@@ -27,6 +27,13 @@ Component.prototype.createOperations = function()
     component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/.gitlab-ci.yml");
     component.addOperation("Move", "@TargetDirDest@/@ProjectName@/gitlab-ci.yml.example", "@TargetDirDest@/@ProjectName@/.gitlab-ci.yml");
     component.addOperation("Move", "@TargetDirDest@/@ProjectName@/gitignore.example", "@TargetDirDest@/@ProjectName@/.gitignore");
+	
+	// Tests
+	component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_template.pro", "template", "@ProjectName@");
+	component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_template.cpp", "Template", "@ProjectName@");
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_template.cpp", "template", "@ProjectName@");
+	component.addOperation("Move", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_template.pro", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_@ProjectName@.pro");
+	component.addOperation("Move", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_template.cpp", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_@ProjectName@.cpp");
 
     // find and replace all occurrences of the word Template / template to "@ProjectName@"
     component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/src/src.pro", "Template", "@ProjectName@");
@@ -117,6 +124,7 @@ function appendComponent(component) {
 		case "com.milosolutions.mrestapi"          :
 		case "com.milosolutions.mbarcodescanner"   :
 		case "com.milosolutions.mcrypto"           :
+        case "com.milosolutions.mcharts"           :
 		
                 appendComponentTest(component);
         break;
