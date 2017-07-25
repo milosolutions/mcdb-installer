@@ -97,13 +97,6 @@ Component.prototype.createOperations = function()
       if (component.value("platform-android", "") == "")
           component.addOperation("Delete", "@TargetDir@/@ProjectName@/platforms/android");
     }
-	else
-	if (installer.value("startMenu", "") == "")
-	{
-		component.addOperation("CreateShortcut", "@TargetDir@/maintenancetool.exe", "@StartMenuDir@/maintenancetool.lnk",
-            "workingDirectory=@TargetDir@", "iconPath=%SystemRoot%/system32/SHELL32.dll",
-            "iconId=2");
-	}
 }
 
 function appendComponent(component) {
@@ -118,9 +111,13 @@ function appendComponent(component) {
 
     // if component has test
     switch (component.name) {
-        case "com.milosolutions.mconfig"  :
-        case "com.milosolutions.mlog"     :
-        case "com.milosolutions.mrestapi" :
+		case "com.milosolutions.mconfig"           :
+		case "com.milosolutions.mlog"              :
+		case "com.milosolutions.msentry"           :
+		case "com.milosolutions.mrestapi"          :
+		case "com.milosolutions.mbarcodescanner"   :
+		case "com.milosolutions.mcrypto"           :
+		
                 appendComponentTest(component);
         break;
     }

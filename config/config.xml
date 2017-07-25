@@ -9,6 +9,7 @@
     <InstallerWindowIcon>icon</InstallerWindowIcon>
     <InstallerApplicationIcon>icon</InstallerApplicationIcon>
     <Logo>logo-transparent-small.png</Logo>
+	<ControlScript>controller.js</ControlScript>
     <!--<Banner>logo.png</Banner>-->
     <!--<Watermark>watermark.png</Watermark>-->
     <!--<Background>background.png</Background>-->
