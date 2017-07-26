@@ -16,6 +16,7 @@ INPUT = README.md doc/buildinginstaller.md doc/docbranding.md doc/miloheader.md 
 RECURSIVE = TRUE
 QT_AUTOBRIEF = YES
 USE_MDFILE_AS_MAINPAGE = README.md
+TOC_INCLUDE_HEADINGS = 99
 
 EXTRACT_ALL = YES
 EXTRACT_PRIVATE = YES
