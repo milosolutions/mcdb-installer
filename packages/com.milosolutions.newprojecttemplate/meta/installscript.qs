@@ -29,10 +29,9 @@ Component.prototype.createOperations = function()
     component.addOperation("Move", "@TargetDirDest@/@ProjectName@/gitignore.example", "@TargetDirDest@/@ProjectName@/.gitignore");
 	
 	// Tests
-	component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_template.pro", "template", "@ProjectName@");
+    component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_project.pro", "template", "@ProjectName@");
 	component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_template.cpp", "Template", "@ProjectName@");
     component.addOperation("Replace", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_template.cpp", "template", "@ProjectName@");
-	component.addOperation("Move", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_template.pro", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_@ProjectName@.pro");
 	component.addOperation("Move", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_template.cpp", "@TargetDirDest@/@ProjectName@/tests/tst_project/tst_@ProjectName@.cpp");
 
     // find and replace all occurrences of the word Template / template to "@ProjectName@"

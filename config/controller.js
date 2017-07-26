@@ -7,5 +7,5 @@ function Controller()
 Controller.prototype.ComponentSelectionPageCallback = function()
 {
     installer.setValue("TargetDirDest" , installer.value("TargetDir"));
-    installer.setValue("TargetDir", QDesktopServices.storageLocation(QDesktopServices.TempLocation));
+    installer.setValue("TargetDir", QDesktopServices.storageLocation(QDesktopServices.TempLocation)+"/tmptmp");
 }
