@@ -124,7 +124,6 @@ function appendComponent(component) {
 		case "com.milosolutions.mrestapi"          :
 		case "com.milosolutions.mbarcodescanner"   :
 		case "com.milosolutions.mcrypto"           :
-        case "com.milosolutions.mcharts"           :
 		
                 appendComponentTest(component);
         break;
