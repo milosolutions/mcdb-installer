@@ -17,7 +17,7 @@ RECURSIVE = TRUE
 QT_AUTOBRIEF = YES
 USE_MDFILE_AS_MAINPAGE = README.md
 MARKDOWN_SUPPORT = YES
-TOC_INCLUDE_HEADINGS = 20
+TOC_INCLUDE_HEADINGS = 99
 
 EXTRACT_ALL = YES
 EXTRACT_PRIVATE = YES
@@ -25,7 +25,7 @@ EXTRACT_STATIC = YES
 
 DISTRIBUTE_GROUP_DOC = YES
 
-GENERATE_TAGFILE = milocodedatabase.doxytag
+GENERATE_TAGFILE = mcdb-installer.doxytag
 GENERATE_HTML = YES
 GENERATE_LATEX = NO
 GENERATE_RTF = NO
@@ -61,5 +61,5 @@ packages/com.milosolutions.mlog/data/milo/mlog/mlog.doxytag=../../packages/com.m
 packages/com.milosolutions.mrestapi/data/milo/mrestapi/mrestapi.doxytag=../../packages/com.milosolutions.mrestapi/data/milo/mrestapi/doc/html \
 packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner/mbarcodescanner.doxytag=../../packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner/doc/html \
 packages/com.milosolutions.mcharts/data/milo/mcharts/mcharts.doxytag=../../packages/com.milosolutions.mcharts/data/milo/mcharts/doc/html \
-packages/com.milosolutions.msentry/data/milo/msentry/msentry.doxytag=../../packages/com.milosolutions.msentry/data/milo/msentry/doc/html
-packages/com.milosolutions.mcrypto/data/milo/mcrypto/mcrypto.doxytag=../../packages/com.milosolutions.mcrypto/data/milo/mcrypto/doc/html
+packages/com.milosolutions.msentry/data/milo/msentry/msentry.doxytag=../../packages/com.milosolutions.msentry/data/milo/msentry/doc/html \
+packages/com.milosolutions.mcrypto/data/milo/mcrypto/mcrypto.doxytag=../../packages/com.milosolutions.mcrypto/data/milo/mcrypto/doc/html \
