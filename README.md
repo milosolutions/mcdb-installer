@@ -1,5 +1,5 @@
 [TOC]
-# Intro {#milodatabasemain}
+# Intro
 
 Milo Code Database is the place where we keep all useful pieces of code: snippets, working modules, templates. The repository is organised into a Qt Installer Framework project. MCDB is a great way to skip all the mundane and boring code
 you have to write for each new project - here you get all the initial project code prepared and ready for further development.
