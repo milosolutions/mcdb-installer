@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
-  echo "Usage: $(basename $0) doxygenPath qtIfwPath"
+  echo "Usage: $(basename $0) qtIfwPath [doxygenPath]"
   echo "This will only work when invoked from root repo dir"
   echo
   echo "Builds all subproject documentation, cleans up build dirs, creates the "
@@ -8,18 +8,18 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   exit
 fi
 
-if [ "$#" -ne 2 ]; then
-  echo "Illegal number of parameters: $#. See --help"
-  exit 1
-fi
+if [ "$#" -lt 1 ]; then 
+  echo "Illegal number of parameters: $#. See --help" 
+  exit 1 
+fi 
 
 if [ ! -f "$PWD/mcdb-installer.doxyfile" ]; then
   echo "Wrong directory. Call this script from root dir of Milo Code Database"
   exit 2
 fi
 
-DOXY=$1
-IFW=$2
+IFW=$1
+DOXY=$2
 LOGFILE=$(pwd)/build/build-log.txt
 
 # Takes one argument: path to subproject
@@ -30,8 +30,10 @@ prepareSubproject() {
   echo "  Removing build artifacts" | tee -a $LOGFILE
   rm -rfv build-* >> $LOGFILE 2>&1
   rm *.pro.user >> $LOGFILE 2>&1
-  echo "  Building documentation" | tee -a $LOGFILE
-  $DOXY *.doxyfile >> $LOGFILE 2>&1
+  if [ "$DOXY" != "" ]; then
+	echo "  Building documentation" | tee -a $LOGFILE
+	$DOXY *.doxyfile >> $LOGFILE 2>&1
+  fi
   echo "  Done" | tee -a $LOGFILE
   cd $TEMP
 }

@@ -74,18 +74,18 @@ class DeployEngine {
   
     [void] run() {
         #build submodules doc
-        $this.buildSubmoduleDoc("packages\com.milosolutions.mbarcodescanner\data\milo\mbarcodescanner");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.mscripts\data\milo\mscripts");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.mcharts\data\milo\mcharts");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.mconfig\data\milo\mconfig");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.mlog\data\milo\mlog");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.mrestapi\data\milo\mrestapi");
-		$this.buildSubmoduleDoc("packages\com.milosolutions.msentry\data\milo\msentry");
-		$this.buildSubmoduleDoc("packages\com.milosolutions.mcrypto\data\milo\mcrypto");
-        $this.buildSubmoduleDoc("packages\com.milosolutions.newprojecttemplate\data");
+        #$this.buildSubmoduleDoc("packages\com.milosolutions.mbarcodescanner\data\milo\mbarcodescanner");
+        #$this.buildSubmoduleDoc("packages\com.milosolutions.mscripts\data\milo\mscripts");
+        #$this.buildSubmoduleDoc("packages\com.milosolutions.mcharts\data\milo\mcharts");
+        #$this.buildSubmoduleDoc("packages\com.milosolutions.mconfig\data\milo\mconfig");
+        #$this.buildSubmoduleDoc("packages\com.milosolutions.mlog\data\milo\mlog");
+        #$this.buildSubmoduleDoc("packages\com.milosolutions.mrestapi\data\milo\mrestapi");
+		#$this.buildSubmoduleDoc("packages\com.milosolutions.msentry\data\milo\msentry");
+		#$this.buildSubmoduleDoc("packages\com.milosolutions.mcrypto\data\milo\mcrypto");
+        #$this.buildSubmoduleDoc("packages\com.milosolutions.newprojecttemplate\data");
         
         # Build main docs last - so that they can connect TAGFILES properly
-        $this.buildSubmoduleDoc(".");
+        #$this.buildSubmoduleDoc(".");
         
         # build installer ( QtInstallerFramework )
         $this.buildInstaller();

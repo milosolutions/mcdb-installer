@@ -1,7 +1,7 @@
 @echo OFF
 
 if %1 == -h (
-  echo Usage: windowsBuild.bat doxygenPath qtIfwPath
+  echo Usage: windowsBuild.bat qtIfwPath [doxygenPath]
   echo This will only work when invoked from root repo dir
   echo Builds all subproject documentation, cleans up build dirs, creates the 
   echo Milo DB installer
@@ -14,14 +14,14 @@ for %%x in (%*) do Set /A argC+=1
 
 echo Argument count is %argC%
 
-if "%argC%" NEQ "2" (
+if "%argC%" LSS "1" (
   echo "Illegal number of parameters: %argC%. See -h"
   pause
   goto :EOF
 )
 
-set DOXY=%1
-set IFW=%2
+set IFW=%1
+set DOXY=%2
 
 echo "Removing build artifacts from base package"
 for /d %%G in ("packages\com.milosolutions.newprojecttemplate\build-*") do (rd /s /q "%%~G")
@@ -80,7 +80,9 @@ rem Takes one argument: path to subproject
   echo Removing build artifacts
   for /d %%G in ("build-*") do (rd /s /q "%%~G")
   for %%G in ("*.pro.user") do (del "%%~G")
-  echo Building documentation
-  for %%G in ("*.doxyfile") do (%DOXY% "%%~G")
+  if not "%DOXY%" == "" (
+	echo Building documentation
+	for %%G in ("*.doxyfile") do (%DOXY% "%%~G")
+  )
   echo Done
   cd %TEMP%

@@ -19,7 +19,6 @@ fi
 echo "Updating repository"
 git submodule update --init
 
-DOXYGEN=($which doxygen)
 QTIFW=$1
 FILE=build/miloinstaller_$(date +%Y.%m.%d).run
 DOMAIN=https://seafile.milosolutions.com
@@ -28,7 +27,7 @@ USER=$MILOVM_SEAFILE_USER
 PASSWORD=$MILOVM_SEAFILE_PASSWORD
 
 echo "Building installer"
-./scripts/build_unix.sh $DOXYGEN $QTIFW
+./scripts/build_unix.sh $QTIFW
 
 echo "Uploading to Seafile"
 ./scripts/upload_to_seafile.sh -f $FILE -s $DOMAIN -r $REPO -u $USER -p $PASSWORD

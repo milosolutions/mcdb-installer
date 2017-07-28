@@ -1,5 +1,4 @@
 Building installer {#buildinginstaller}
-===============
 [TOC]
 
 # CI builds # {#ci-build}
@@ -14,24 +13,24 @@ You can see the available installers [here](https://seafile.milosolutions.com/#g
 
 This repository can easily be compiled into an installer using:
 
-  ~~~
-  ./scripts/build_unix.sh $(which doxygen) <QtIfwInstallationDir>/bin/binarycreator
-  ~~~
+```
+./scripts/build_unix.sh <QtIfwInstallationDir>/bin/binarycreator
+```
 
 or (on Windows)
 
-  ~~~
-  scripts\build_windows.bat "C:\Program Files\doxygen\bin\doxygen.exe" <QtIfwInstallationDir>\bin\binarycreator.exe
-  ~~~
+```
+scripts\build_windows.bat <QtIfwInstallationDir>\bin\binarycreator.exe
+```
 
 QtIFW is included in standard Qt installers from Qt Project (qt.io/downloads). Alternatively, you can compile QtIFW from source - but that is not necessary and will take you much more time.
 
 Doxygen: on Windows, download and install the installer from http://www.stack.nl/~dimitri/doxygen/download.html
 On Linux, doxygen is usually available from your package manager, so do something like
 
-~~~
+```
 sudo apt install doxygen
-~~~
+```
 
 Deploy script is also available (Linux) - it will build the project and upload the installer to Seafile, all in one go. Very convenient and recommended. 
 
