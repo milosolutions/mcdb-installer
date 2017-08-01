@@ -21,7 +21,7 @@ Component.prototype.createOperations = function()
 	}
 	else // Linux
 	{
-		component.addOperation("Execute", "mv", "template", "@ProjectName@", "workingdirectory=@TargetDirDest@\@ProjectName@");
+		component.addOperation("Execute", "mv", "template/", "@ProjectName@/", "workingdirectory=@TargetDirDest@/@ProjectName@");
 	}
 	
 	// Custom operations:
