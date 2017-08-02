@@ -113,6 +113,8 @@ Component.prototype.createOperations = function()
 		if (installer.value("platform-android", "") == "")
 			component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/@ProjectName@/platforms/android");
 	}
+	
+	installer.setValue("postOperations", "true");
 }
 
 function appendComponent(component) {

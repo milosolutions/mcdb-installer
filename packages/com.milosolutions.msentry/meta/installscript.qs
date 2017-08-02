@@ -8,4 +8,5 @@ Component.prototype.createOperationsForArchive = function(archive)
 	component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/milo/msentry/.git");
 	component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/milo/msentry/.gitignore");
 	component.addOperation("Delete", "@TargetDirDest@/@ProjectName@/milo/msentry/.gitlab-ci.yml");
+	installer.setValue("postOperations", "true");
 }

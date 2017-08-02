@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<Package> 
+    <DisplayName></DisplayName> 
+    <Description></Description> 
+    <Version>1</Version> 
+    <ReleaseDate>2017-08-01</ReleaseDate> 
+    <Virtual>true</Virtual> 
+    <SortingPriority>101</SortingPriority> 
+    <Script>installscript.js</Script> 
+    <UserInterfaces> 
+        <UserInterface>gitcheckbox.ui</UserInterface> 
+    </UserInterfaces> 
+</Package>
