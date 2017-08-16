@@ -22,7 +22,7 @@ Information how to apply Milo branding to doxygen docs is available in [Document
 
 # Prebuilt installers
 
-You can find prebuilt installers of Milo Code Database on our [Seafile](https://seafile.milosolutions.com/#group/4/lib/abc2c8d4-7551-49f6-9f67-6d4e271c0cd1). You need to be logged in to see the contents.
+You can find prebuilt installers of Milo Code Database on our [Seafile](https://seafile.milosolutions.com/d/2c50614e1e/). You need to be logged in to see the contents.
 
 The installer is the quickest way to create a new project: will all necessary boilerplate code in place. The .pro file, doxygen, logger, build helpers, CI scripts, config classes... everything you choose to install (the process is customizable) will be extracted to a single place - all that is left for you is to
 open it up in Qt Creator and start coding the interesting bits!
