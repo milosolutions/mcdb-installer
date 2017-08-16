@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>New project template</DisplayName>
-    <Description>Contains most crucial part of any new project: .pro file, doxygen configuration, example main.cpp file, versioning scripts, default doxygen style, license etc. Use it in all new projects, if possible</Description>
+    <Description>Contains most crucial part of any new project: .pro file, doxygen configuration, example main.cpp file, default doxygen style, git files, license, GitLab CI integration etc. Use it in all new projects.</Description>
     <Version>1</Version>
-    <ReleaseDate>2016-02-27</ReleaseDate>
+    <ReleaseDate>2017-08-16</ReleaseDate>
     <Licenses>
         <License name="Default Milo license" file="license.txt" />
     </Licenses>

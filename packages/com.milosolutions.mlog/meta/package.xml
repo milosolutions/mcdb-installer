@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>MLog</DisplayName>
-    <Description>MLog is a reference logging class for use in all new Milo projects. It allows logging to both console and into a file. It maintains two log files (current and previous) to make bug fixing easier. MLog fully supports Qt's categorized logging.</Description>
+    <Description>MLog is a reference logging class. It allows logging to both console and into a file. It maintains two log files (current and previous) to make bug fixing easier. MLog fully supports Qt's categorized logging, and integrates with qDebug/ qCDebug family of macros.</Description>
     <Version>1</Version>
-    <ReleaseDate>2016-04-21</ReleaseDate>
-    <Default>false</Default>
+    <ReleaseDate>2017-08-16</ReleaseDate>
+    <Default>true</Default>
     <Script>installscript.qs</Script>
 </Package>

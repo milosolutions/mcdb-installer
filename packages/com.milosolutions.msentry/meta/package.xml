@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>MSentry</DisplayName>
-    <Description>MSentry provides easy Qt interface for Sentry - remote logger</Description>
+    <Description>MSentry provides easy to use Qt interface for Sentry - remote logger. Code is based heavily on QRaven implementation. It is lightweight and efficient. Sentry support can be turned on and off with a config switch - no need to wrap the logger in ifdefs.</Description>
     <Version>1</Version>
-    <ReleaseDate>2017-06-30</ReleaseDate>
+    <ReleaseDate>2017-08-16</ReleaseDate>
     <Default>false</Default>
     <Script>installscript.qs</Script>
 </Package>

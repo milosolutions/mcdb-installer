@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Package>
     <DisplayName>Mac</DisplayName>
-    <Description>This component contains all stuff for Mac system.</Description>
+    <Description>This component contains default .pri for Mac system.</Description>
     <Version>1.0.0</Version>
-    <ReleaseDate>2016-12-01</ReleaseDate>
+    <ReleaseDate>2017-08-16</ReleaseDate>
 </Package>

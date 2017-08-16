@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>MScripts</DisplayName>
-    <Description>Example scripts for using GitLab CIm Mattermost.</Description>
+    <Description>Collection for helper scripts for all occasions: automated versioning scripts, Seafile integration, git hooks (for code checking with clang-format and clang-tidy), Android and iOS packaging scripts, and Mattermost notification script</Description>
     <Version>1</Version>
-    <ReleaseDate>2016-02-27</ReleaseDate>
-    <Default>false</Default>
+    <ReleaseDate>2017-08-16</ReleaseDate>
+    <Default>true</Default>
     <Script>installscript.qs</Script>
 </Package>

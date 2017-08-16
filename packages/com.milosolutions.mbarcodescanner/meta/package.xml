@@ -3,7 +3,7 @@
     <DisplayName>MBarcodeScanner</DisplayName>
     <Description>BarcodeScanner is a small helper class that allows to scan barcodes and QR codes using QZXing library.</Description>
     <Version>1</Version>
-    <ReleaseDate>2016-09-07</ReleaseDate>
+    <ReleaseDate>2017-08-16</ReleaseDate>
     <Default>false</Default>
     <Script>installscript.qs</Script>
 </Package>

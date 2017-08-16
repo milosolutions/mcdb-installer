@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>MCrypto</DisplayName>
-    <Description>Cryptographic API for Qt applications. It allow to encode and decode AES 128, 192, 256 in CBC, ECB or CFB modes. It is using OpenSSL libraries or included Qt-AES.</Description>
+    <Description>Cryptographic API for Qt applications. It allows to encode and decode AES 128, 192, 256 in CBC, ECB or CFB modes. It uses OpenSSL libraries or included Qt-AES fallback. This module also contains easy to use OpenSSL build scripts - when you need to build custom OpenSSL (for example for Android).</Description>
     <Version>1</Version>
-    <ReleaseDate>2017-07-19</ReleaseDate>
+    <ReleaseDate>2017-08-16</ReleaseDate>
     <Default>false</Default>
     <Script>installscript.qs</Script>
 </Package>

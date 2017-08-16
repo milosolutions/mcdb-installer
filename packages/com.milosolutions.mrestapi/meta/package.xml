@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>MRestAPI</DisplayName>
-    <Description>MRestAPI is a project that shows sample code to communicate via REST API.</Description>
+    <Description>MRestAPI contains base classes for communication via REST API.</Description>
     <Version>1</Version>
-    <ReleaseDate>2016-06-29</ReleaseDate>
+    <ReleaseDate>2017-08-16</ReleaseDate>
     <Default>false</Default>
     <Script>installscript.qs</Script>
 </Package>

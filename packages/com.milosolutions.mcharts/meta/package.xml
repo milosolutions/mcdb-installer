@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package>
     <DisplayName>MCharts</DisplayName>
-    <Description>MCharts is an easy to use module for displaying charts. It uses charts.js insternally</Description>
+    <Description>MCharts is a simple and easy to use module for displaying charts. It uses charts.js internally</Description>
     <Version>1</Version>
-    <ReleaseDate>2016-09-08</ReleaseDate>
+    <ReleaseDate>2017-08-16</ReleaseDate>
     <Default>false</Default>
     <Script>installscript.qs</Script>
 </Package>
