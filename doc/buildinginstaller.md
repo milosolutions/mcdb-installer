@@ -3,8 +3,8 @@ Building installer {#buildinginstaller}
 
 # CI builds # {#ci-build}
 
-Our GitLab CI is set up to generate Milo Code DB
-[online documentation](https://qtdocs.milosolutions.com/milo-code-db/main/) and 
+Milo GitLab CI is set up to generate Milo Code DB
+[online documentation](https://docs.milosolutions.com/milo-code-db/main/) and 
 the installers for Windows and Linux automatically for each new commit.
 
 You can see the available installers [here](https://seafile.milosolutions.com/#group/4/lib/abc2c8d4-7551-49f6-9f67-6d4e271c0cd1).
