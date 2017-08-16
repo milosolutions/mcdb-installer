@@ -10,15 +10,15 @@ If you are creating a new project, you are encouraged to check our MCDB installe
 
 # Building installer
 
-Instructions for building MCDB installer are listed in ([online] (https://docs.milosolutions.com/milo-code-db/main/buildinginstaller.html) | [offline] (\ref buildinginstaller)).
+Instructions for building MCDB installer are listed [here](\ref buildinginstaller).
 
 # Subprojects
 
-Subproject documentation is listed in ([online](https://docs.milosolutions.com/milo-code-db/main/subprojects.html) | [offline] (\ref subprojects)).
+Subproject documentation is listed [here](\ref subprojects).
 
 # Documentation branding
 
-Information how to apply Milo branding to doxygen docs is available in Documentation branding ([online](https://docs.milosolutions.com/milo-code-db/main/docbranding.html) | [offline] (\ref docbranding)).
+Information how to apply Milo branding to doxygen docs is available in [Documentation branding](\ref docbranding).
 
 # Prebuilt installers
 
@@ -33,7 +33,7 @@ Each separate piece of technology we share should be kept in a separate git repo
 
 All code has to be properly licensed, documented, contain readme and doxygen docs.
 
-More information about adding new modules is available in Repository guide ([online](https://docs.milosolutions.com/milo-code-db/main/repositoryguide.html) | [offline] (\ref repositoryguide)).
+More information about adding new modules is available in [Repository guide](\ref repositoryguide).
 
 # License
 
