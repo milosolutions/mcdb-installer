@@ -10,7 +10,7 @@ before_script:
   # It needs to be setted through script, for example:
   - set USERPROFILE=C:\Users\gitlab-runner
   
-  - git submodule sync --recursive
+  #- git submodule sync --recursive
   - git submodule update --init --recursive 
   - git submodule foreach git pull origin master
   #- git submodule foreach --recursive git checkout master && git pull origin master
