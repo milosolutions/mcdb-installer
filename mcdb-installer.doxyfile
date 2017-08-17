@@ -6,7 +6,7 @@
 DOXYFILE_ENCODING = UTF-8
 
 PROJECT_NAME = "Milo Code Database"
-PROJECT_NUMBER = 0.1
+PROJECT_NUMBER = 1.0
 PROJECT_BRIEF = "Code DB is the place where we put interesting, reusable pieces of code, for use in other projects"
 PROJECT_LOGO = doc/img/logo.png
 
