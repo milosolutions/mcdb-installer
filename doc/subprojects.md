@@ -4,7 +4,7 @@ Subprojects {#subprojects}
 
 Milo DB is slowly growing. Below are 2 lists of modules: one set of links leads to our online documentation, the other one can be used locally, if you build the docs on your machine (offline).
 
-# Online docs:
+# Online docs
 
 1. [New project template](https://docs.milosolutions.com/milo-code-db/newprojecttemplate/) template for all new Qt projects (QML and Widgets)
 2. [MScripts](https://docs.milosolutions.com/milo-code-db/mscripts/) Example  scripts for GitLab CI, Mattermost etc.
@@ -18,7 +18,10 @@ Milo DB is slowly growing. Below are 2 lists of modules: one set of links leads 
 
 Instructions on how to add a new module are contained in \ref repositoryguide
 
-# Offline docs:
+# Offline docs
+
+These links are active only if you have build all MCDB submodules locally on
+your PC.
 
 1. [New Project Template](\ref milodatabasenpl)
 2. [MScripts](\ref MScripts)
