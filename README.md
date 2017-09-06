@@ -2,6 +2,8 @@
 
 Full documentation is available online - check it out [here](https://docs.milosolutions.com/milo-code-db/main).
 
+Source code: [GitHub](https://github.com/milosolutions)
+
 # Intro
 
 Milo Code Database is the place where we keep all useful pieces of code:
