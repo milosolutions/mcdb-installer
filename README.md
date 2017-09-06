@@ -1,4 +1,7 @@
 [TOC]
+
+Full documentation is available online - check it out [here](https://docs.milosolutions.com/milo-code-db/main).
+
 # Intro
 
 Milo Code Database is the place where we keep all useful pieces of code:
