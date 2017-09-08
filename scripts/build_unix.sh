@@ -8,10 +8,10 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   exit
 fi
 
-if [ $# -lt 2 ]; then
-  echo "Illegal number of parameters: "$#". See --help"
-  exit 1 
-fi 
+#if [ $# -lt 2 ]; then
+#  echo "Illegal number of parameters: "$#". See --help"
+#  exit 1
+#fi
 
 if [ ! -f "$PWD/mcdb-installer.doxyfile" ]; then
   echo "Wrong directory. Call this script from root dir of Milo Code Database"
