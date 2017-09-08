@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
-  echo "Usage: $(basename $0) qtIfwPath [doxygenPath]"
+  echo "Usage: $(basename $0) --[mac | linux] qtIfwPath [doxygenPath]"
   echo "This will only work when invoked from root repo dir"
   echo
   echo "Builds all subproject documentation, cleans up build dirs, creates the "
@@ -8,7 +8,7 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   exit
 fi
 
-if [ "$#" -lt 1 ]; then 
+if [ "$#" -lt 2 ]; then
   echo "Illegal number of parameters: $#. See --help" 
   exit 1 
 fi 
@@ -18,9 +18,16 @@ if [ ! -f "$PWD/mcdb-installer.doxyfile" ]; then
   exit 2
 fi
 
-IFW=$1
-DOXY=$2
+PLATFORM=$1
+IFW=$2
+DOXY=$3
 LOGFILE=$(pwd)/build/build-log.txt
+
+if [ "$1" = "--linux" ]; then
+  EXTENSION="run"
+elif [ "$1" = "--mac" ]; then
+  EXTENSION="dmg"
+fi
 
 # Takes one argument: path to subproject
 prepareSubproject() {
@@ -54,15 +61,14 @@ prepareSubproject packages/com.milosolutions.newprojecttemplate/data
 # Build main docs last - so that they can connect TAGFILES properly
 prepareSubproject .
 
+pwd
+
 echo "Building installer" | tee -a $LOGFILE
-echo "DEBUG: ifw"
-ls -al /Users/Tools/Qt-OpenSource/QtInstallerFramework/bin/
+$IFW -v -c config/config.xml -p packages build/miloinstaller_$(date +%Y.%m.%d).$EXTENSION >> $LOGFILE 2>&1
+
 echo "DEBUG: build dir"
 ls -al build/
-ls -al
-$IFW -v -c config/config.xml -p packages build/miloinstaller_$(date +%Y.%m.%d).run
-#>> $LOGFILE 2>&1
-chmod +x ./build/miloinstaller_$(date +%Y.%m.%d).run
+chmod +x ./build/miloinstaller_$(date +%Y.%m.%d).$EXTENSION
 
 echo "Done. If nothing failed, the installer is built. Check build/build-log.txt for details" | tee -a $LOGFILE
 

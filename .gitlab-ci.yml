@@ -9,7 +9,7 @@ before_script:
   # It is possible that WindowsDesktop runner doesn't have set USERPROFILE
   # It needs to be setted through script, for example:
   - set USERPROFILE=C:\Users\gitlab-runner
-  
+
   - git submodule sync --recursive
   - git submodule update --init --recursive 
   - git submodule foreach git pull origin master
@@ -19,16 +19,16 @@ build_docs:
   script:
     # run doxygen with the appropriate doxyfile
     - doxygen $CI_PROJECT_NAME.doxyfile
-    
+
     # move generated documentation to qtdocs/milo-code-db/$CI_PROJECT_NAME
     - rm -rf /var/www/docs_open_source/milo-code-db/main/
     - mv doc/html /var/www/docs_open_source/milo-code-db/main/
   tags:
     - Docs
-    
+
 build_linux_installer:
   script:
-    - scripts/deploy.sh /home/tools/Qt-OpenSource/QtInstallerFramework/bin/binarycreator
+    - scripts/deploy.sh --linux /home/tools/Qt-OpenSource/QtInstallerFramework/bin/binarycreator
   tags:
     - LinuxDesktop
 
@@ -40,6 +40,6 @@ build_windows_installer:
 
 build_macos_installer:
   script:
-    - scripts/deploy.sh /Users/Tools/Qt-OpenSource/QtInstallerFramework/bin/binarycreator
+    - scripts/deploy.sh --mac /Users/Tools/QtIFW2.0.3/bin/binarycreator
   tags:
     - macOS
