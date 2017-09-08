@@ -50,7 +50,7 @@ rm -rfv packages/com.milosolutions.newprojecttemplate/build-* >> $LOGFILE 2>&1
 
 echo "Preparing subprojects" | tee -a $LOGFILE
 prepareSubproject packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner
-prepareSubproject packages/com.milosolutions.mcripts/data/milo/mscripts
+prepareSubproject packages/com.milosolutions.mscripts/data/milo/mscripts
 prepareSubproject packages/com.milosolutions.msentry/data/milo/msentry
 prepareSubproject packages/com.milosolutions.mcharts/data/milo/mcharts
 prepareSubproject packages/com.milosolutions.mconfig/data/milo/mconfig
@@ -61,6 +61,11 @@ prepareSubproject packages/com.milosolutions.newprojecttemplate/data
 # Build main docs last - so that they can connect TAGFILES properly
 prepareSubproject .
 
+echo "DEBUG: vars"
+echo $#
+echo $@
+echo $?
+echo "Ifw: "$IFW
 pwd
 
 echo "Building installer" | tee -a $LOGFILE
@@ -71,4 +76,3 @@ ls -al build/
 chmod +x ./build/miloinstaller_$(date +%Y.%m.%d).$EXTENSION
 
 echo "Done. If nothing failed, the installer is built. Check build/build-log.txt for details" | tee -a $LOGFILE
-
