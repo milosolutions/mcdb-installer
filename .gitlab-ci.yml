@@ -28,7 +28,7 @@ build_docs:
 
 build_linux_installer:
   script:
-    - scripts/deploy.sh --linux /home/tools/Qt-OpenSource/QtInstallerFramework/bin/binarycreator
+    - scripts/deploy.sh --linux /home/tools/QtIFW2.0.3/bin/binarycreator
   tags:
     - LinuxDesktop
 
