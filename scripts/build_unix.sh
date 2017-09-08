@@ -8,8 +8,8 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   exit
 fi
 
-if [ "$#" -lt 2 ]; then
-  echo "Illegal number of parameters: $#. See --help" 
+if [ $# -lt 2 ]; then
+  echo "Illegal number of parameters: "$#". See --help"
   exit 1 
 fi 
 
