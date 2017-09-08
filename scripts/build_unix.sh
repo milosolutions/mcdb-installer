@@ -55,8 +55,13 @@ prepareSubproject packages/com.milosolutions.newprojecttemplate/data
 prepareSubproject .
 
 echo "Building installer" | tee -a $LOGFILE
+echo "DEBUG: ifw"
+ls -al /Users/Tools/Qt-OpenSource/QtInstallerFramework/bin/
+echo "DEBUG: build dir"
 ls -al build/
-$IFW -v -c config/config.xml -p packages build/miloinstaller_$(date +%Y.%m.%d).run >> $LOGFILE 2>&1
+ls -al
+$IFW -v -c config/config.xml -p packages build/miloinstaller_$(date +%Y.%m.%d).run
+#>> $LOGFILE 2>&1
 chmod +x ./build/miloinstaller_$(date +%Y.%m.%d).run
 
 echo "Done. If nothing failed, the installer is built. Check build/build-log.txt for details" | tee -a $LOGFILE
