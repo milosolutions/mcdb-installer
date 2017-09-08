@@ -55,6 +55,7 @@ prepareSubproject packages/com.milosolutions.newprojecttemplate/data
 prepareSubproject .
 
 echo "Building installer" | tee -a $LOGFILE
+ls -al build/
 $IFW -v -c config/config.xml -p packages build/miloinstaller_$(date +%Y.%m.%d).run >> $LOGFILE 2>&1
 chmod +x ./build/miloinstaller_$(date +%Y.%m.%d).run
 
