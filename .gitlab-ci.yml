@@ -28,7 +28,7 @@ build_docs:
     
 build_linux_installer:
   script:
-    - scripts/deploy.sh /home/tools/QtIFW2.0.3/bin/binarycreator
+    - scripts/deploy.sh /home/tools/Qt-OpenSource/QtInstallerFramework/bin/binarycreator
   tags:
     - LinuxDesktop
 
@@ -37,3 +37,9 @@ build_windows_installer:
     - powershell -ExecutionPolicy RemoteSigned -File scripts/deploy.ps1
   tags:
     - WindowsDesktop
+
+build_macos_installer:
+  script:
+    - scripts/deploy.sh /Users/Tools/Qt-OpenSource/QtInstallerFramework/bin/binarycreator
+  tags:
+    - macOS
