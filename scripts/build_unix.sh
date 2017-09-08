@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
-  echo "Usage: $(basename $0) --[mac | linux] qtIfwPath [doxygenPath]"
+  echo "Usage: $(basename $0) extension qtIfwPath [doxygenPath]"
   echo "This will only work when invoked from root repo dir"
   echo
   echo "Builds all subproject documentation, cleans up build dirs, creates the "
@@ -8,26 +8,20 @@ if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   exit
 fi
 
-#if [ $# -lt 2 ]; then
-#  echo "Illegal number of parameters: "$#". See --help"
-#  exit 1
-#fi
+if [ $# -lt 2 ]; then
+  echo "Illegal number of parameters: "$#". See --help"
+  exit 1
+fi
 
 if [ ! -f "$PWD/mcdb-installer.doxyfile" ]; then
   echo "Wrong directory. Call this script from root dir of Milo Code Database"
   exit 2
 fi
 
-PLATFORM=$1
+EXTENSION=$1
 IFW=$2
 DOXY=$3
 LOGFILE=$(pwd)/build/build-log.txt
-
-if [ "$1" = "--linux" ]; then
-  EXTENSION="run"
-elif [ "$1" = "--mac" ]; then
-  EXTENSION="dmg"
-fi
 
 # Takes one argument: path to subproject
 prepareSubproject() {
@@ -61,18 +55,9 @@ prepareSubproject packages/com.milosolutions.newprojecttemplate/data
 # Build main docs last - so that they can connect TAGFILES properly
 prepareSubproject .
 
-echo "DEBUG: vars"
-echo $#
-echo $@
-echo $?
-echo "Ifw: "$IFW
-pwd
-
 echo "Building installer" | tee -a $LOGFILE
 $IFW -v -c config/config.xml -p packages build/miloinstaller_$(date +%Y.%m.%d).$EXTENSION >> $LOGFILE 2>&1
 
-echo "DEBUG: build dir"
-ls -al build/
 chmod +x ./build/miloinstaller_$(date +%Y.%m.%d).$EXTENSION
 
 echo "Done. If nothing failed, the installer is built. Check build/build-log.txt for details" | tee -a $LOGFILE
