@@ -4,6 +4,8 @@ Full documentation is available online - check it out [here](https://docs.miloso
 
 Source code: [GitHub](https://github.com/milosolutions)
 
+![Milo Code Database installer](doc/img/MCDBInstaller4.png "MCDB at work")
+
 # Intro
 
 Milo Code Database is the place where we keep all useful pieces of code:
@@ -52,9 +54,39 @@ If you are installing template project using Installer, go to
 [Seafile](https://seafile.milosolutions.com/d/2c50614e1e/) and download the
 newest installer for your platform.
 
-Run it (you may need to set the executable permission on Linux), choose the name
-for your project, then the installation dir (the installer will create a folder
-with your project name inside), then the MCDB modules you need.
+Run it (you may need to set the executable permission on Linux) and  choose the
+name for your project. This name will be used for folder name, your .pro file,
+target application name etc. so choose wisely.
+
+<img src="MCDBInstaller2.png" alt="Choosing project name" style="width: 650px;"/>
+Choosing project name
+
+
+Next step is choosing the installation directory. Here setup will create a new
+folder with your (reviously chosen) project name, and copy all installation
+files into it.
+
+If you select "Add git repository", the installer will run ```git init``` in
+the project directory after installation. You can also choose to create the
+initial commit with all the installed files. Lastly, you can specify remote
+repository (on GitLab or GitHub for example) and the installer will set it up
+for you as a *git remote* (origin). All git options are completely optional.
+
+<img src="MCDBInstaller3.png" alt="Choosing installation directory" style="width: 650px;"/>
+Choosing installation directory
+
+
+On the following screen you get to choose the Milo Code Database modules you
+want to use in your project. All modules will be automatically added to your
+.pro file - after installation the project will be ready to be used, either
+with raw qmake or with Qt Creator.
+
+<img src="MCDBInstaller4.png" alt="Choosing MCDB modules" style="width: 650px;"/>
+Choosing MCDB modules
+
+
+Following are standard installation steps: license confirmation, installation
+progress and summary.
 
 When the installation is ready, you can open the .pro file (located in
 _installation dir_/_project name_/_project name_.pro) in Qt Creator and start
