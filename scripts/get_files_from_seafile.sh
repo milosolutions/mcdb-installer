@@ -65,16 +65,8 @@ function sanity_check() {
   fi
 
   if [ -z $TOKEN ]; then
-    if [ -z $USER ]; then
-      echo "Use Token (-t) or User (-u) and Password (-p) pair"
-      ERROR=6; return
-    fi
-
-    if [ -z $PASSWORD ]; then
-      echo "Use Token (-t) or User (-u) and Password (-p) pair"
-      ERROR=7; return
-    fi
-    echo "Token not set. Will try to get it automatically"
+    echo "Token not set. This script only works with tokens"
+    ERROR=111; return
   fi
 }
 
