@@ -1,21 +1,26 @@
 #!/bin/bash
 ############################################
 #
-# MILO @ 2016
+# MILO @ 2018
 #
-# Seafile File Uploader
+# Seafile File Deleter
 #
-############################################ 
+#
+############################################
 
 function print_help() {
-    echo "Seafile File Uploader";
-    echo "MILO @ 2016"
+    echo "Seafile File Deleter";
+    echo "MILO @ 2018"
     echo
-    echo "Usage: $0 -f FILE -s SERVER -r REPO [-d DIR] -u NAME -p PASS"
+    echo "This script will remove files in a given Seafile repository,"
+    echo "you just need to provide a file list (you can get it from"
+    echo "get_files_from_seafile.sh script)."
+    echo
+    echo "Usage: $0 -f FILES -s SERVER -r REPO [-d DIR] -u NAME -p PASS"
     echo "OR"
-    echo "Usage: $0 -f FILE -s SERVER -r REPO [-d DIR] -t TOKEN"
+    echo "Usage: $0 -f FILES -s SERVER -r REPO [-d DIR] -t TOKEN"
     echo "Parameters:"
-    echo "  -f path    path to file to be uploaded"
+    echo "  -f names   files to delete, separated by colons file:file2:file3"
     echo "  -s path    seafile server address"
     echo "  -r name    seafile repository id"
     echo "  -d path    library subdirectory for upload (default: /)"
@@ -41,11 +46,6 @@ function sanity_check() {
     ERROR=2; return
   fi
 
-  if [ ! -e $FILE ]; then
-    echo "File not exists: $FILE"
-    ERROR=3; return
-  fi
-  
   if [ -z $DOMAIN ]; then
     echo "Server address not set (-s)"
     ERROR=4; return
@@ -83,30 +83,9 @@ function get_token() {
   TOKEN=${TOKEN:11:$(expr ${#TOKEN} - 13)}
 }
 
-function get_link() {
-  echo "checking whether file exists"
-  FILE_LIST=$(curl -H "Authorization: Token $TOKEN" -H 'Accept: application/json; indent=4' $DOMAIN/api2/repos/$REPO_ID/dir/?p=/$DIRECTORY)
-  FILENAME=$(basename $FILE)
-  OPERATION=upload-link
-  if grep -q "$FILENAME" <<< "$FILE_LIST" ; then
-    OPERATION=update-link
-  fi
-
-  echo "obtain upload link"
-  UPLOAD_LINK=$(curl -H "Authorization: Token $TOKEN" $DOMAIN/api2/repos/$REPO_ID/$OPERATION/)
-  #get rid of quotas
-  UPLOAD_LINK=${UPLOAD_LINK:1:$(expr ${#UPLOAD_LINK} - 2)}
-}
-
-function upload() {
-  if [ $OPERATION == update-link ] 
-  then
-    echo "Updating $FILE"
-    curl -H "Authorization: Token $TOKEN" -F file=@$FILE -F filename=$FILENAME -F target_file=/$DIRECTORY/$FILENAME $UPLOAD_LINK
-  else
-    echo "Uploading $FILE"
-    curl -H "Authorization: Token $TOKEN" -F file=@$FILE -F filename=$FILENAME -F parent_dir=/$DIRECTORY $UPLOAD_LINK
-  fi
+function remove_files() {
+  echo "Removing $FILES"
+  curl -d "file_names=$FILES" -H "Authorization: Token $TOKEN" $DOMAIN/api2/repos/$REPO_ID/fileops/delete/?p=/$DIRECTORY
 }
 
 #main
@@ -117,7 +96,7 @@ do
         h) print_help;
             exit 0;
             ;;
-        f) FILE=$OPTARG
+        f) FILES=$OPTARG
             ;;
         s) DOMAIN=$OPTARG
             ;;
@@ -149,7 +128,6 @@ if [ -z $TOKEN ]; then
     exit 10
   fi
 fi
-get_link
-upload
+remove_files
 echo "Done"
 

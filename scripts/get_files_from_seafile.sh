@@ -1,21 +1,31 @@
 #!/bin/bash
 ############################################
 #
-# MILO @ 2016
+# MILO @ 2018
 #
-# Seafile File Uploader
+# Seafile Get File Names
 #
-############################################ 
+#
+############################################
 
 function print_help() {
-    echo "Seafile File Uploader";
-    echo "MILO @ 2016"
+    echo "Seafile Get File Names";
+    echo "MILO @ 2018"
     echo
-    echo "Usage: $0 -f FILE -s SERVER -r REPO [-d DIR] -u NAME -p PASS"
+    echo "This script will get names of all the files in a given Seafile"
+    echo "repository or optionally from a subdirectory."
+    echo
+    echo "Requires curl, jq and basename."
+    echo
+    echo "Flag '-n' is currently not implemented."
+    echo
+    echo "Usage: $0 -o DATE -n NUMBER -s SERVER -r REPO [-d DIR] -u NAME -p PASS"
     echo "OR"
-    echo "Usage: $0 -f FILE -s SERVER -r REPO [-d DIR] -t TOKEN"
+    echo "Usage: $0 -o DATE -n NUMBER -s SERVER -r REPO [-d DIR] -t TOKEN"
     echo "Parameters:"
-    echo "  -f path    path to file to be uploaded"
+    echo "  -o date    return files older than date. Must be something Unix"
+    echo "             date understands, like \"2018-01-05T14:26\""
+    echo "  -n number  return files except n newest ones"
     echo "  -s path    seafile server address"
     echo "  -r name    seafile repository id"
     echo "  -d path    library subdirectory for upload (default: /)"
@@ -29,23 +39,21 @@ function print_help() {
 # will stop on first error
 function sanity_check() {
 
-  type curl
-  if [ $? -ne 0 ]; then
+  if [ -z "$(type -t curl)" ]; then
     echo "Cannot run curl. Check if it's installed."
     ERROR=1; return
   fi
 
-  type basename
-  if [ $? -ne 0 ]; then
+  if [ -z "$(type -t basename)" ]; then
     echo "Cannot run basename. Check if it's installed."
     ERROR=2; return
   fi
 
-  if [ ! -e $FILE ]; then
-    echo "File not exists: $FILE"
-    ERROR=3; return
+  if [ -z "$(type -t jq)" ]; then
+    echo "Cannot run jq. Check if it's installed."
+    ERROR=2; return
   fi
-  
+
   if [ -z $DOMAIN ]; then
     echo "Server address not set (-s)"
     ERROR=4; return
@@ -83,41 +91,50 @@ function get_token() {
   TOKEN=${TOKEN:11:$(expr ${#TOKEN} - 13)}
 }
 
-function get_link() {
-  echo "checking whether file exists"
-  FILE_LIST=$(curl -H "Authorization: Token $TOKEN" -H 'Accept: application/json; indent=4' $DOMAIN/api2/repos/$REPO_ID/dir/?p=/$DIRECTORY)
-  FILENAME=$(basename $FILE)
-  OPERATION=upload-link
-  if grep -q "$FILENAME" <<< "$FILE_LIST" ; then
-    OPERATION=update-link
-  fi
-
-  echo "obtain upload link"
-  UPLOAD_LINK=$(curl -H "Authorization: Token $TOKEN" $DOMAIN/api2/repos/$REPO_ID/$OPERATION/)
-  #get rid of quotas
-  UPLOAD_LINK=${UPLOAD_LINK:1:$(expr ${#UPLOAD_LINK} - 2)}
+function get_files() {
+  JSON=$(curl -s -H "Authorization: Token $TOKEN" -H 'Accept: application/json; indent=4' $DOMAIN/api2/repos/$REPO_ID/dir/?p=/$DIRECTORY)
+  # Array of files in DIRECTORY
+  FILES=($(echo $JSON | jq -r '.[].name'))
+  # Array of timestapms of FILES
+  TIMESTAMPS=($(echo $JSON | jq -r '.[].mtime'))
 }
 
-function upload() {
-  if [ $OPERATION == update-link ] 
-  then
-    echo "Updating $FILE"
-    curl -H "Authorization: Token $TOKEN" -F file=@$FILE -F filename=$FILENAME -F target_file=/$DIRECTORY/$FILENAME $UPLOAD_LINK
-  else
-    echo "Uploading $FILE"
-    curl -H "Authorization: Token $TOKEN" -F file=@$FILE -F filename=$FILENAME -F parent_dir=/$DIRECTORY $UPLOAD_LINK
+function parse_results() {
+  # Number of packages to leave has been defined
+  if [ ! -z $NUMBERTOLEAVE ]; then
+    echo "-n option is not implemented! Aborting"
+    exit 123
+  fi
+
+  # Older than has been defined
+  if [ ! -z $OLDERTHAN ]; then
+    DEADLINE=$(date +%s --date="$OLDERTHAN")
+    INDEX=0
+    for MDATE in "${TIMESTAMPS[@]}"; do
+      #echo "Lessie: "$MDATE", and "$DEADLINE", while older than is: "$OLDERTHAN
+      if (( $MDATE < $DEADLINE )); then
+        if [ ! -z $RESULT ]; then
+          RESULT+=":"
+        fi
+        RESULT+=${FILES[$INDEX]}
+        #echo "Temp result: "$RESULT
+      fi
+      INDEX=$(($INDEX + 1))
+    done
   fi
 }
 
 #main
 ERROR=0
-while getopts ":hf:s:r:d:t:u:p:" opt ;
+while getopts ":hno:s:r:d:t:u:p:" opt ;
 do
     case $opt in
         h) print_help;
             exit 0;
             ;;
-        f) FILE=$OPTARG
+        n) NUMBERTOLEAVE=$OPTARG
+            ;;
+        o) OLDERTHAN=$OPTARG
             ;;
         s) DOMAIN=$OPTARG
             ;;
@@ -149,7 +166,6 @@ if [ -z $TOKEN ]; then
     exit 10
   fi
 fi
-get_link
-upload
-echo "Done"
-
+get_files
+parse_results
+echo $RESULT

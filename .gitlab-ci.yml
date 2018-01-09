@@ -29,6 +29,8 @@ build_docs:
 build_linux_installer:
   script:
     - scripts/deploy.sh --linux /home/tools/QtIFW2.0.3/bin/binarycreator
+    - export FILES=$(scripts/get_files_from_seafile.sh -o $TODAY -s $SEAFILE_SERVER -r $SEAFILE_REPO_ID -t $SEAFILE_API_TOKEN)
+    - if [ ! -z "$FILES" ]; then scripts/delete_from_seafile.sh -f $FILES -s $SEAFILE_SERVER -r $SEAFILE_REPO_ID -t $SEAFILE_API_TOKEN ; fi
   tags:
     - LinuxDesktop
 
