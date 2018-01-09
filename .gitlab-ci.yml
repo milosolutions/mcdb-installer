@@ -36,8 +36,8 @@ build_linux_installer:
     # TODAY is set to current time minus 8 hours.
     - export TODAY=`date "+%Y-%m-%dT%H:%M" --date="-8hours"`
     - export FILES=$(scripts/get_files_from_seafile.sh -o $TODAY -s $MILO_SERVER -r $MILOCODEDATABASE_SEAFILE_REPO -u $MILOVM_SEAFILE_USER -p $MILOVM_SEAFILE_PASSWORD)
-    - echo "Files are: $FILES"
-    - if [ ! -z "$FILES" ]; then scripts/delete_from_seafile.sh -f $FILES -s $MILO_SERVER -r $MILOCODEDATABASE_SEAFILE_REPO -u $MILOVM_SEAFILE_USER -p $MILOVM_SEAFILE_PASSWORD ; fi
+    - echo "Files are $FILES"
+    - if [ ! -z "$FILES" ]; then $(scripts/delete_from_seafile.sh -f $FILES -s $MILO_SERVER -r $MILOCODEDATABASE_SEAFILE_REPO -u $MILOVM_SEAFILE_USER -p $MILOVM_SEAFILE_PASSWORD) ; fi
   tags:
     - LinuxDesktop
 
