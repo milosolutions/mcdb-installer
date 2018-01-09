@@ -32,12 +32,13 @@ build_linux_installer:
   script:
     - scripts/deploy.sh --linux /home/tools/QtIFW2.0.3/bin/binarycreator
     # Clean old builds:
+    ## DISABLED because we use too old Seafile :-(
     # All packages older than TODAY will be removed from Seafile
     # TODAY is set to current time minus 8 hours.
-    - export TODAY=`date "+%Y-%m-%dT%H:%M" --date="-8hours"`
-    - export FILES=$(scripts/get_files_from_seafile.sh -o $TODAY -s $MILO_SERVER -r $MILOCODEDATABASE_SEAFILE_REPO -t $SEAFILE_TOKEN)
-    - echo "Files are $FILES"
-    - if [ ! -z "$FILES" ]; then $(scripts/delete_from_seafile.sh -f $FILES -s $MILO_SERVER -r $MILOCODEDATABASE_SEAFILE_REPO -t $SEAFILE_TOKEN) ; fi
+    #- export TODAY=`date "+%Y-%m-%dT%H:%M" --date="-8hours"`
+    #- export FILES=$(scripts/get_files_from_seafile.sh -o $TODAY -s $MILO_SERVER -r $MILOCODEDATABASE_SEAFILE_REPO -t $SEAFILE_TOKEN)
+    #- echo "Files are $FILES"
+    #- if [ ! -z "$FILES" ]; then $(scripts/delete_from_seafile.sh -f $FILES -s $MILO_SERVER -r $MILOCODEDATABASE_SEAFILE_REPO -t $SEAFILE_TOKEN) ; fi
   tags:
     - LinuxDesktop
 
