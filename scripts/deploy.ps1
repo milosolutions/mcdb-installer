@@ -25,7 +25,7 @@ class ScriptArgs {
 }
 
 class DeployEngine {
-    [string] $qtifw = "C:\Tools\QtIFW2.0.3\bin\binarycreator.exe";
+    [string] $qtifw = "C:\Tools\Qt-OpenSource\QtInstallerFramework\3.0\bin\binarycreator.exe";
     [string] $file = "miloinstaller_"  + (Get-Date).ToString('yyyy.MM.dd') + ".exe";
     [string] $server = "https://seafile.milosolutions.com";
     [string] $repo = $Env:MILOCODEDATABASE_SEAFILE_REPO;
