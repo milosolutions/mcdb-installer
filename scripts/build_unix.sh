@@ -42,7 +42,7 @@ prepareSubproject() {
   cd $1
   echo "  Removing build artifacts"
   rm -rfv build-*
-  rm *.pro.user
+  rm -f *.pro.user
   if [ "$DOXY" != "" ]; then
     echo "  Building documentation"
     $DOXY *.doxyfile
