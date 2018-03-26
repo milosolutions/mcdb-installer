@@ -1,4 +1,8 @@
 #!/bin/sh
+
+# Bail on errors.
+set -e
+
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo "Usage: $(basename $0) extension qtIfwPath [doxygenPath]"
   echo "This will only work when invoked from root repo dir"
@@ -21,28 +25,37 @@ fi
 EXTENSION=$1
 IFW=$2
 DOXY=$3
-LOGFILE=$(pwd)/build/build-log.txt
+
+if [ ! -f "$IFW" ]; then
+  echo "Qt Installer Framework has not been found! "$IFW
+  exit 3
+fi
+
+if [ ! -f "$DOXY" ]; then
+  echo "Doxygen has not been found. No worries, this script will still continue "$DOXY
+  exit 4
+fi
 
 # Takes one argument: path to subproject
 prepareSubproject() {
-  echo "Subproject "$(basename $1) | tee -a $LOGFILE
+  echo "Subproject $(basename $1)"
   TEMP=$PWD
-  cd $1 >> $LOGFILE 2>&1
-  echo "  Removing build artifacts" | tee -a $LOGFILE
-  rm -rfv build-* >> $LOGFILE 2>&1
-  rm *.pro.user >> $LOGFILE 2>&1
+  cd $1
+  echo "  Removing build artifacts"
+  rm -rfv build-*
+  rm *.pro.user
   if [ "$DOXY" != "" ]; then
-	echo "  Building documentation" | tee -a $LOGFILE
-	$DOXY *.doxyfile >> $LOGFILE 2>&1
+    echo "  Building documentation"
+    $DOXY *.doxyfile
   fi
-  echo "  Done" | tee -a $LOGFILE
+  echo "  Done"
   cd $TEMP
 }
 
-echo "Removing build artifacts from base package" | tee $LOGFILE
-rm -rfv packages/com.milosolutions.newprojecttemplate/build-* >> $LOGFILE 2>&1
+echo "Removing build artifacts from base package"
+rm -rfv packages/com.milosolutions.newprojecttemplate/build-*
 
-echo "Preparing subprojects" | tee -a $LOGFILE
+echo "Preparing subprojects"
 prepareSubproject packages/com.milosolutions.mbarcodescanner/data/milo/mbarcodescanner
 prepareSubproject packages/com.milosolutions.mscripts/data/milo/mscripts
 prepareSubproject packages/com.milosolutions.msentry/data/milo/msentry
@@ -55,9 +68,9 @@ prepareSubproject packages/com.milosolutions.newprojecttemplate/data
 # Build main docs last - so that they can connect TAGFILES properly
 prepareSubproject .
 
-echo "Building installer" | tee -a $LOGFILE
-$IFW -v -c config/config.xml -p packages build/miloinstaller_$(date +%Y.%m.%d).$EXTENSION >> $LOGFILE 2>&1
+echo "Building installer"
+$IFW -v -c config/config.xml -p packages build/miloinstaller_$(date +%Y.%m.%d).$EXTENSION
 
 chmod +x ./build/miloinstaller_$(date +%Y.%m.%d).$EXTENSION
 
-echo "Done. If nothing failed, the installer is built. Check build/build-log.txt for details" | tee -a $LOGFILE
+echo "Done. If nothing failed, the installer is built. Check build/build-log.txt for details"

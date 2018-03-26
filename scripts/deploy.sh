@@ -1,11 +1,14 @@
 #!/bin/bash
 ############################################
 #
-# MILO @ 2016
+# MILO @ 2018
 #
 # Deploy script for Milo Code Database
 #
 ############################################ 
+
+# Bail on errors.
+set -e
 
 if [ "${1}" = "-h" ] || [ "${1}" = "--help" ]; then
   echo "Usage: $(basename $0) --[mac | linux] qtIfwPath"
