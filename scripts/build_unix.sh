@@ -33,7 +33,6 @@ fi
 
 if [ ! -f "$DOXY" ]; then
   echo "Doxygen has not been found. No worries, this script will still continue "$DOXY
-  exit 4
 fi
 
 # Takes one argument: path to subproject
