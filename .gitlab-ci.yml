@@ -30,7 +30,7 @@ build_linux_installer:
   variables:
     MILO_SERVER: "https://seafile.milosolutions.com"
   script:
-    - scripts/deploy.sh --linux /home/tools/Qt-OpenSource/QtInstallerFramework/3.0/bin/binarycreator
+    - scripts/deploy.sh --linux /home/tools/Qt-OpenSource/Tools/QtInstallerFramework/3.0/bin/binarycreator
     # Clean old builds:
     ## DISABLED because we use too old Seafile :-(
     # All packages older than TODAY will be removed from Seafile
