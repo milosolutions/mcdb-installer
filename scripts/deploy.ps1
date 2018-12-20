@@ -31,11 +31,11 @@ class DeployEngine {
     [string] $repo = $Env:MILOCODEDATABASE_SEAFILE_REPO;
     [string] $user = $Env:MILOVM_SEAFILE_USER;
     [string] $password = $Env:MILOVM_SEAFILE_PASSWORD;
-  
+
     # constructor
     DeployEngine() {
     }
-  
+
     static [void] help() {
         Write-Host( "Usage: scripts/deploy.ps1 [options]" )
         Write-Host "This will only work when invoked from root dir"
@@ -43,11 +43,11 @@ class DeployEngine {
                    "Milo DB installer and uploads it to Seafile" )
         exit
     }
-    
+
     [void] buildSubmoduleDoc([string] $projectPath) {
         Write-Host "Subproject $projectPath";
         Write-Host "";
-        
+
         $location = $PWD;
         Set-Location -Path $projectPath
         Get-ChildItem -Path ".\" -Filter *.doxyfile -File -Name| ForEach-Object {
@@ -56,22 +56,22 @@ class DeployEngine {
             # run doxygen
             &doxygen "$doxyname.doxyfile"
         }
-        
+
         Set-Location -Path $location
     }
-  
+
     [void] buildInstaller() {
         Write-Host "Building Installer..."
         & $this.qtifw -c config/config.xml -p packages $this.file
         Write-Host "Done. `n"
     }
-  
+
     [void] runUploader() {
         Write-Host "Uploading to Seafile..."
         & scripts/uploader.ps1 -f $this.file -s $this.server -r $this.repo -u $this.user -p $this.password
         Write-Host "Done. `n"
     }
-  
+
     [void] run() {
         #build submodules doc
         #$this.buildSubmoduleDoc("packages\com.milosolutions.mbarcodescanner\data\milo\mbarcodescanner");
@@ -83,23 +83,22 @@ class DeployEngine {
 		#$this.buildSubmoduleDoc("packages\com.milosolutions.msentry\data\milo\msentry");
 		#$this.buildSubmoduleDoc("packages\com.milosolutions.mcrypto\data\milo\mcrypto");
         #$this.buildSubmoduleDoc("packages\com.milosolutions.newprojecttemplate\data");
-        
+
         # Build main docs last - so that they can connect TAGFILES properly
         #$this.buildSubmoduleDoc(".");
-        
+
         # build installer ( QtInstallerFramework )
         $this.buildInstaller();
-        
+
         # run uploader.ps1 script which upload installer to seafile
         $this.runUploader();
     }
 }
 
 function main {
-    
     # validate script args
     [ScriptArgs]::validate();
-    
+
     # build and upload installer to seafile
     [DeployEngine]::new().run();
 }

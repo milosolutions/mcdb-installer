@@ -41,7 +41,7 @@ echo "Building installer"
 ./scripts/build_unix.sh $EXTENSION $QTIFW
 
 echo "Uploading to Seafile"
-./scripts/upload_to_seafile.sh -f $FILE -s $DOMAIN -r $REPO -u $USER -p $PASSWORD
+./scripts/upload_to_seafile.sh -f $FILE -s $DOMAIN -r $REPO -t $SEAFILE_TOKEN
 
 echo "Uploading documentation to docs.milosolutions.com"
 echo "  To update online docs, please push your changes to GitLab. CI will handle"
