@@ -1,3 +1,5 @@
+**WARNING: MCDB Installer has now moved to https://github.com/milosolutions/milo-qtcreator-wizard and works as a Qt Creator Wizard**
+
 [TOC]
 
 Full documentation is available online - check it out [here](https://docs.milosolutions.com/milo-code-db/main).
